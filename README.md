@@ -85,12 +85,20 @@ Add image of project (giphy)
 ### Frameworks, Libraries & Programs Used
 
 - [Finnhub API](https://finnhub.io/docs/api/)
-  - XXX
+  - Finnhub API was used to create StockFinder project. The API provides access to real-time RESTful APIs for stocks.
+    The following APIs were used for this project:
+  - Searching for stocks: https://finnhub.io/docs/api/symbol-search
+  -
 - [React](https://reactjs.org/)
-  - XXX
+  - React is a JavaScript library used for building user interfaces.
+  - In this project, functional components were used. Hooks were used to XXXX.
 - [SASS]()
 - [ES Lint](https://eslint.org/)
-  - ESLint is used to statically analyze the code to quickly find problems.
+  - ESLint was used to statically analyze the code to quickly find problems.
+- [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+  - Prettier was used to automatically format the code as it is saved to mitigate code errors/conflicts.
+- [Axios]()
+  - XXX
 
 Others tools:
 
@@ -103,10 +111,9 @@ Others tools:
 - [Git](https://git-scm.com/)
   - Git was used for version control to commit to Git and Push to GitHub.
 - [GitHub:](https://github.com/)
-  - GitHub is used to store the projects code after being pushed from Git.
+  - GitHub was used to store the projects code after being pushed from Git.
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Visual studio code was used to write the code.
-  - [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) Prettier, a VS code extension, was used to automatically format the code as it is saved to mitigate code errors.
 - [Balsamiq:](https://balsamiq.com/)
   - Balsamiq was used to create the [wireframes]() during the design process.
 
@@ -162,8 +169,14 @@ git clone https://github.com/USERNAME/REPOSITORY
 
 ### Code
 
-- XXX
-- XXX
+- The structure of my React project to ensure best practices was based in this [article](https://www.devaradise.com/react-project-folder-structure?fbclid=IwAR3QkX7MSaZ8L1yxSeRQ-cTemlXv61JUjlVPkwyjALAGSXp9LhwTtxP6W9w).
+
+  - Assets contain XXX
+  - Components contain a collection of my UI components.
+  - Pages reflects the routes of my application.
+  - Services contain my JavaScript function that manages API integration.
+
+- Use of Axios was based in this [article](https://www.digitalocean.com/community/tutorials/react-axios-react).
 - XXX
 
 ### Content
