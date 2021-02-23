@@ -89,6 +89,8 @@ Add image of project (giphy)
 - [React](https://reactjs.org/)
   - XXX
 - [SASS]()
+- [ES Lint](https://eslint.org/)
+  - ESLint is used to statically analyze the code to quickly find problems.
 
 Others tools:
 
@@ -102,8 +104,8 @@ Others tools:
   - Git was used for version control to commit to Git and Push to GitHub.
 - [GitHub:](https://github.com/)
   - GitHub is used to store the projects code after being pushed from Git.
-- [Virtual Studio Code](https://code.visualstudio.com/)
-  - Virtual studio code was used to write the code.
+- [Visual Studio Code](https://code.visualstudio.com/)
+  - Visual studio code was used to write the code.
   - [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) Prettier, a VS code extension, was used to automatically format the code as it is saved to mitigate code errors.
 - [Balsamiq:](https://balsamiq.com/)
   - Balsamiq was used to create the [wireframes]() during the design process.
