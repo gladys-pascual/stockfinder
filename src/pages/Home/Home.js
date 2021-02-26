@@ -1,9 +1,10 @@
+import Search from "../../components/Search/Search";
 import "./Home.scss";
 
 const Home = () => {
   return (
     <div>
-      <p>search</p>
+      <Search />
       <p>News</p>
     </div>
   );
