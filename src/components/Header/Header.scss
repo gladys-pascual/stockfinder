@@ -1,0 +1,15 @@
+@import "../../assets/variables.scss";
+
+header {
+  display: flex;
+  .logo {
+    width: 150px;
+    img {
+      width: 100%;
+    }
+  }
+  .logo:hover {
+    animation-name: logo-bounce-animation;
+    animation-duration: 1s;
+  }
+}

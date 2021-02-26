@@ -36,7 +36,7 @@ Add image of project (giphy)
     - XXX
     - XXX
   - #### Animations
-    - XXX
+    - logo-bounce-animation: When there is a hover on the logo in the header, logo-bounce-animation is applied to let the user know that the logo is a clickable link. The logo-bounce-animation adds some fun to the website.
   - #### Favicon
     - StockFinder favicon was used to allow user to distinguish the tab when multiple tabs are open in their browser, which allows for a better user experience.
 
