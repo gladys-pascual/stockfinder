@@ -11,7 +11,6 @@ function App() {
       <Switch>
         <Route exact path="/" render={() => <Home />} />
       </Switch>
-
       <Footer />
     </>
   );
