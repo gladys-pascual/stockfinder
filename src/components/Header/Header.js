@@ -1,12 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.scss";
+import StockFinderLogo from "./StockFinderLogo.svg";
 
 const Header = () => {
   return (
     <header>
       <Link exact="true" to="/" className="logo">
-        <img src="https://via.placeholder.com/50" alt="Logo of StockFinder" />
+        <img src={StockFinderLogo} alt="Logo of StockFinder" />
       </Link>
+      <nav>
+        <ul>
+          <li>
+            <NavLink exact={true} to="/" activeClassName="selected">
+              Home
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };
