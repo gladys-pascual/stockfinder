@@ -2,8 +2,11 @@
 
 header {
   display: flex;
+  justify-content: center;
+  align-items: center;
   .logo {
     width: 150px;
+    margin: 40px;
     img {
       width: 100%;
     }
@@ -11,5 +14,31 @@ header {
   .logo:hover {
     animation-name: logo-bounce-animation;
     animation-duration: 1s;
+  }
+
+  nav ul {
+    display: flex;
+    padding: 20px;
+    margin: 4px;
+    font-size: 16px;
+    list-style-type: none;
+    @media screen and (max-width: 780px) {
+      padding: 10px;
+    }
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $text-color;
+    }
+    .selected {
+      color: white;
+      background-color: $theme-color;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .selected:hover {
+      background-color: $theme-color + 20%;
+    }
   }
 }
