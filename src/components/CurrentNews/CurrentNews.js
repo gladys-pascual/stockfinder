@@ -16,11 +16,10 @@ const CurrentNews = () => {
       .then((response) => {
         const firstTenNews = response.data.slice(0, 10);
         setCurrentNews(firstTenNews);
+        setLoading(false);
       })
       .catch((err) => console.log("Error fetching and parsing data", err));
   }, []);
-
-  console.log(currentNews);
 
   if (loading) {
     return <Loading />;
@@ -35,7 +34,9 @@ const CurrentNews = () => {
             <span className="sr-only">Newspaper icon</span>
           </i>
         </h1>
-        <News />
+        {currentNews.map((news) => {
+          return <News news={news} key={news.id} />;
+        })}
       </div>
     </section>
   );
