@@ -8,16 +8,7 @@ const News = ({ news }) => {
 
   console.log(news.id);
 
-  const {
-    category,
-    datetime,
-    headline,
-    id,
-    image,
-    source,
-    summary,
-    url,
-  } = news;
+  const { category, datetime, headline, image, source, summary, url } = news;
 
   // Function that  turns the first letter of category uppercase
   // If the category has two words or more, upper case start of each word
