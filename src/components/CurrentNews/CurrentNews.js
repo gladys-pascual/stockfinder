@@ -1,7 +1,31 @@
+import { useEffect, useState } from "react";
 import News from "../News/News";
 import "./CurrentNews.scss";
+import axios from "axios";
+import Loading from "../Loading/Loading";
 
 const CurrentNews = () => {
+  const [currentNews, setCurrentNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://finnhub.io/api/v1/news?category=general&token=${process.env.REACT_APP_API_KEY}`
+      )
+      .then((response) => {
+        const firstTenNews = response.data.slice(0, 10);
+        setCurrentNews(firstTenNews);
+      })
+      .catch((err) => console.log("Error fetching and parsing data", err));
+  }, []);
+
+  console.log(currentNews);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <section className="current-news-wrapper">
       <div className="current-news">

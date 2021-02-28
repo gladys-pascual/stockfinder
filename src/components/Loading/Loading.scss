@@ -1,0 +1,13 @@
+@import "../../assets/variables.scss";
+
+.loading-heading {
+  @include headings;
+}
+.loading {
+  padding: 50px 0px 50px 45vw;
+  display: flex;
+  max-width: 100%;
+  @media screen and (max-width: 500px) {
+    padding-left: 20vw;
+  }
+}

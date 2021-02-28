@@ -32,3 +32,13 @@
 $theme-color: #7bcbc4;
 $text-color: grey;
 $text-color-hover: white;
+
+@mixin headings {
+  font-size: 1.8em;
+  font-weight: 300;
+  line-height: 1.8em;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
+}
