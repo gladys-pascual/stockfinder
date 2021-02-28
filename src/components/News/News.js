@@ -12,8 +12,13 @@ const News = () => {
       });
       return upperCasedWords.join(" ");
     } else {
-      return category.charAt(0).toUpperCase() + "category".slice(1);
+      return category.charAt(0).toUpperCase() + category.slice(1);
     }
+  };
+
+  const categoryClassName = {
+    "top news": "top-news",
+    business: "business",
   };
 
   return (
@@ -29,8 +34,8 @@ const News = () => {
         </div>
         <div className="news-info">
           <div className="category-source-time">
-            <p className="category top-news business">
-              {upperCase("top news")}
+            <p className={`category ${categoryClassName["business"]}`}>
+              {upperCase("business")}
             </p>
             <p className="source">CNBC</p>
             <p className="time">time</p>
