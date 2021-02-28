@@ -1,4 +1,35 @@
-.news {
-  border: 1px solid black;
-  margin: 20px;
+.news-link {
+  text-decoration: none;
+  color: black;
+  .news {
+    border: 1px solid black;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    .news-picture {
+      width: 500px;
+      padding-right: 20px;
+      img {
+        width: 100%;
+      }
+    }
+    .news-info {
+      .category-source-time {
+        display: flex;
+        p {
+          margin-right: 8px;
+        }
+      }
+      .headline {
+        margin: 0px;
+        font-size: 1.5em;
+        font-weight: 500;
+        font-family: "Roboto", sans-serif;
+        letter-spacing: 1px;
+      }
+      .summary {
+        line-height: 1.5em;
+      }
+    }
+  }
 }

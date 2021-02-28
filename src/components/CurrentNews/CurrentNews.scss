@@ -1,12 +1,13 @@
 .current-news-wrapper {
   display: flex;
   justify-content: center;
-
   .current-news {
     width: 65vw;
     border: 1px solid black;
     .current-news-title {
-      font-size: 2em;
+      font-size: 1.8em;
+      font-weight: 300;
+      line-height: 2em;
       font-family: "Roboto", sans-serif;
       letter-spacing: 4px;
       text-transform: uppercase;
