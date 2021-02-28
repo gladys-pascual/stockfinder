@@ -9,16 +9,15 @@ const CurrentNews = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(
+    async function fetchCurrentNewsData() {
+      const result = await axios.get(
         `https://finnhub.io/api/v1/news?category=general&token=${process.env.REACT_APP_API_KEY}`
-      )
-      .then((response) => {
-        const firstTenNews = response.data.slice(0, 10);
-        setCurrentNews(firstTenNews);
-        setLoading(false);
-      })
-      .catch((err) => console.log("Error fetching and parsing data", err));
+      );
+      const firstTenNews = result.data.slice(0, 10);
+      setCurrentNews(firstTenNews);
+      setLoading(false);
+    }
+    fetchCurrentNewsData();
   }, []);
 
   if (loading) {

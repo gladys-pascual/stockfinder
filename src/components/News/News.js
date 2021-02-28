@@ -2,12 +2,6 @@ import "./News.scss";
 import PropTypes from "prop-types";
 
 const News = ({ news }) => {
-  News.propTypes = {
-    news: PropTypes.string.isRequired,
-  };
-
-  console.log(news.id);
-
   const { category, datetime, headline, image, source, summary, url } = news;
 
   // Function that  turns the first letter of category uppercase
@@ -78,6 +72,10 @@ const News = ({ news }) => {
       </section>
     </a>
   );
+};
+
+News.propTypes = {
+  news: PropTypes.object.isRequired,
 };
 
 export default News;
