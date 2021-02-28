@@ -3,6 +3,7 @@
 .search-form {
   display: flex;
   justify-content: center;
+  padding: 50px 0px;
 
   .form-wrapper {
     border: 1px solid lightgrey;
@@ -16,6 +17,7 @@
     width: 50vw;
     letter-spacing: 1px;
     border: none;
+    font-size: 1em;
     @media screen and (max-width: 780px) {
       width: 70vw;
     }

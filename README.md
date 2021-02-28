@@ -54,6 +54,10 @@ Add image of project (giphy)
 
 ### As a user, I want to see general current market news.
 
+- Wrote function that capitalize first letter of category.
+- Added conditional rendering on class names of category. If category is top news, its color will be red. If it's business, color is blue.
+- Loading - better user expereince. If API hasn't loaded yet, component 'Loading' will be shown to let user know that page is being loaded (show picture)
+
 ### As a user, I want to see a graph of the cost of stocks within a certain timeline.
 
 ### As a user, I want to see the current news about the company/stock.
@@ -177,7 +181,11 @@ git clone https://github.com/USERNAME/REPOSITORY
   - Services contain my JavaScript function that manages API integration.
 
 - Use of Axios was based in this [article](https://www.digitalocean.com/community/tutorials/react-axios-react).
-- XXX
+
+  - XXX
+
+- Converting time given by API to relative time
+  - https://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time
 
 ### Content
 

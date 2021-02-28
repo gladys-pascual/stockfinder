@@ -1,0 +1,21 @@
+@import "../../assets/variables.scss";
+
+.current-news-wrapper {
+  display: flex;
+  justify-content: center;
+  .current-news {
+    width: 70vw;
+    @media screen and (max-width: 1200px) {
+      width: 80vw;
+    }
+    @media screen and (max-width: 900px) {
+      width: 70vw;
+    }
+    @media screen and (max-width: 500px) {
+      width: 80vw;
+    }
+    .current-news-title {
+      @include headings;
+    }
+  }
+}

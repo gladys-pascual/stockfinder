@@ -1,0 +1,93 @@
+@import "../../assets/variables.scss";
+
+.news-link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  .news {
+    margin: 20px 0px 80px 0px;
+    display: flex;
+    align-items: center;
+    border: 0.5px solid darkgrey;
+    padding: 8px;
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+    @media screen and (max-width: 500px) {
+      border: none;
+    }
+    .news-picture {
+      width: 40vw;
+      padding-right: 20px;
+      @media screen and (max-width: 1000px) {
+        width: 60vw;
+      }
+      @media screen and (max-width: 900px) {
+        padding-right: 0px;
+      }
+      @media screen and (max-width: 500px) {
+        width: 80vw;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .news-info {
+      @media screen and (max-width: 900px) {
+        width: 60vw;
+      }
+      @media screen and (max-width: 500px) {
+        width: 80vw;
+      }
+      .category-source-time {
+        display: flex;
+        @media screen and (max-width: 500px) {
+          justify-content: center;
+        }
+
+        p {
+          margin-right: 16px;
+        }
+        .top-news {
+          color: red;
+        }
+        .business {
+          color: blue;
+        }
+        .source {
+          color: rgb(107, 104, 104);
+        }
+      }
+      .headline {
+        margin: 0px;
+        font-size: 1.5em;
+        font-weight: 500;
+        font-family: "Roboto", sans-serif;
+        letter-spacing: 1px;
+        @media screen and (max-width: 500px) {
+          text-align: center;
+        }
+      }
+      .summary {
+        line-height: 1.5em;
+        @media screen and (max-width: 500px) {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.news-link:hover {
+  .news {
+    box-shadow: 0 0 10px grey;
+    border: 0.5px solid darkgrey;
+    @media screen and (max-width: 500px) {
+      border: none;
+      box-shadow: none;
+    }
+  }
+  .headline {
+    color: $theme-color;
+  }
+}
