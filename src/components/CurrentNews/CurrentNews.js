@@ -10,12 +10,17 @@ const CurrentNews = () => {
 
   useEffect(() => {
     async function fetchCurrentNewsData() {
-      const result = await axios.get(
-        `https://finnhub.io/api/v1/news?category=general&token=${process.env.REACT_APP_API_KEY}`
-      );
-      const firstTenNews = result.data.slice(0, 10);
-      setCurrentNews(firstTenNews);
-      setLoading(false);
+      try {
+        const result = await axios.get(
+          `https://finnhub.io/api/v1/news?category=general&token=${process.env.REACT_APP_API_KEY}`
+        );
+        const firstTenNews = result.data.slice(0, 10);
+        setCurrentNews(firstTenNews);
+        setLoading(false);
+      } catch (err) {
+        console.log("Error fetching and parsing data", err);
+        setLoading(false);
+      }
     }
     fetchCurrentNewsData();
   }, []);
