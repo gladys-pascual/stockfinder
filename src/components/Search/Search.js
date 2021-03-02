@@ -2,14 +2,18 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./Search.scss";
 import axios from "axios";
+import LoadingSearchAPI from "../Loading/LoadingSearchAPI";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   let history = useHistory();
 
   async function getCompanyData() {
+    setLoading(true);
     try {
       const results = await axios.get(
         `https://finnhub.io/api/v1/search?q=${query}&token=${process.env.REACT_APP_API_KEY}`
@@ -17,8 +21,10 @@ const Search = () => {
       console.log(results);
       const firstFiveResults = results.data.result.slice(0, 5);
       setSearchResults(firstFiveResults);
+      setLoading(false);
     } catch (err) {
       console.log("Error fetching and parsing data", err);
+      setLoading(false);
     }
   }
 
@@ -36,13 +42,9 @@ const Search = () => {
     history.push(`/quote/${item.symbol}`);
   };
 
-  const results = searchResults.map((item, idx) => {
+  const results = searchResults.map((item, i) => {
     return (
-      <li
-        className="result-item"
-        key={idx}
-        onClick={() => hanldeItemClick(item)}
-      >
+      <li className="result-item" key={i} onClick={() => hanldeItemClick(item)}>
         <p className="company-name">{item.description} </p>
         <p className="company-symbol">{item.symbol}</p>
       </li>
@@ -68,7 +70,11 @@ const Search = () => {
         </div>
       </form>
       <div className="query-results-list">
-        {query.length > 1 && <ul>{results}</ul>}
+        {loading ? (
+          <LoadingSearchAPI />
+        ) : (
+          <ul className="results">{results}</ul>
+        )}
       </div>
     </>
   );
