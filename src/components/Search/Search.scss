@@ -3,7 +3,7 @@
 .search-form {
   display: flex;
   justify-content: center;
-  padding: 50px 0px;
+  padding: 50px 0px 0px 0px;
 
   .form-wrapper {
     border: 1px solid lightgrey;
@@ -32,6 +32,7 @@
     border-radius: 30px;
     border: none;
     height: 46px;
+    cursor: pointer;
     @media screen and (max-width: 780px) {
       width: 80px;
     }
@@ -48,5 +49,44 @@
   }
   button:hover {
     background-color: $theme-color + 20%;
+  }
+}
+
+.query-results-list {
+  display: flex;
+  justify-content: center;
+  .results {
+    width: 60vw;
+    padding: 0px;
+    @media screen and (max-width: 780px) {
+      width: 70vw;
+    }
+    @media screen and (max-width: 500px) {
+      font-size: 12px;
+      width: 65vw;
+    }
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid lightgrey;
+      padding: 8px;
+      .company-name {
+        letter-spacing: 1px;
+      }
+      .company-symbol {
+        color: darkgrey;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+    }
+    // .active {
+    //   background-color: lightgrey + 20%;
+    //   border-radius: 4px;
+    // }
+    .result-item:hover {
+      background-color: lightgrey + 20%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   }
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import News from "../News/News";
 import "./CurrentNews.scss";
 import axios from "axios";
-import Loading from "../Loading/Loading";
+import LoadingMarketNews from "../Loading/LoadingMarketNews";
 
 const CurrentNews = () => {
   const [currentNews, setCurrentNews] = useState([]);
@@ -26,7 +26,7 @@ const CurrentNews = () => {
   }, []);
 
   if (loading) {
-    return <Loading />;
+    return <LoadingMarketNews />;
   }
 
   return (

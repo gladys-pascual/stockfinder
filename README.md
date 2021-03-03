@@ -52,6 +52,10 @@ Add image of project (giphy)
 
 ### As a user, I want to see the list of suggested results as I type my query.
 
+- Loading
+- Auto complete search (dev link)
+- Debounce, only call API after 0.5 sec stopping typing (onchange)
+
 ### As a user, I want to see general current market news.
 
 - Wrote function that capitalize first letter of category.
@@ -74,6 +78,10 @@ Add image of project (giphy)
 - Ensure accessibility throughout the website by:
   - Adding 'alt' text on all images.
   - Font awesome icons are in an `<i>` tag. A span with a class "sr-only" is added which describes the icons. The "sr-only" class has a display:none in the stylesheet, which hides the text on screen, but allows for screenreader to be read.
+
+### Loading
+
+- loading component when API is being loaded to provide a better visual UX. Used react spinners
 
 <br/>
 <br/>
@@ -102,7 +110,11 @@ Add image of project (giphy)
 - [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
   - Prettier was used to automatically format the code as it is saved to mitigate code errors/conflicts.
 - [Axios]()
+
   - XXX
+
+- [react-spinners](https://www.npmjs.com/package/react-spinnershttps://www.npmjs.com/package/react-spinners)
+  - loading
 
 Others tools:
 
@@ -185,7 +197,11 @@ git clone https://github.com/USERNAME/REPOSITORY
   - XXX
 
 - Converting time given by API to relative time
+
   - https://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time
+
+- Debounce function in search onChange
+  - https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
 
 ### Content
 
