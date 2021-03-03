@@ -32,6 +32,7 @@
     border-radius: 30px;
     border: none;
     height: 46px;
+    cursor: pointer;
     @media screen and (max-width: 780px) {
       width: 80px;
     }
@@ -77,6 +78,15 @@
         font-weight: 700;
         letter-spacing: 2px;
       }
+    }
+    // .active {
+    //   background-color: lightgrey + 20%;
+    //   border-radius: 4px;
+    // }
+    .result-item:hover {
+      background-color: lightgrey + 20%;
+      border-radius: 4px;
+      cursor: pointer;
     }
   }
 }
