@@ -1,0 +1,135 @@
+@import "../../assets/variables.scss";
+
+.company-summary {
+  background-image: linear-gradient($theme-color, ($theme-color + 70%));
+  display: flex;
+  justify-content: center;
+
+  .summary-wrapper {
+    padding: 12px 5%;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      width: 80vw;
+      align-items: center;
+    }
+    @media screen and (max-width: 500px) {
+      width: 90vw;
+    }
+    .lhs,
+    .rhs {
+      width: 40vw;
+      @media screen and (max-width: 1000px) {
+        width: 80vw;
+      }
+      @media screen and (max-width: 500px) {
+        width: 90vw;
+      }
+    }
+
+    .lhs {
+      .company-header {
+        display: flex;
+        align-items: center;
+        padding-bottom: 12px;
+        @media screen and (max-width: 500px) {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .ticker {
+          @include headings;
+          font-size: 3em;
+          text-align: left;
+          margin: 0px;
+          padding-right: 12px;
+        }
+        .company-name,
+        .industry {
+          margin: 0 0 4px 0;
+          font-size: 1.1em;
+        }
+        .company-name {
+          letter-spacing: 2px;
+          font-weight: 600;
+        }
+        .industry {
+          @include industry-and-current-price-label;
+        }
+      }
+      .current-price-label {
+        @include industry-and-current-price-label;
+        margin: 0px;
+        @media screen and (max-width: 500px) {
+          text-align: center;
+        }
+      }
+      .price-and-pnl {
+        display: flex;
+        @media screen and (max-width: 500px) {
+          justify-content: center;
+        }
+
+        .current-price {
+          @include headings;
+          text-align: left;
+          margin: 0px;
+          padding-right: 12px;
+        }
+      }
+      .pnl {
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+      .profit {
+        color: blue;
+      }
+      .loss {
+        color: red;
+      }
+    }
+    .rhs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @media screen and (max-width: 500px) {
+        align-items: center;
+      }
+      .prices {
+        display: flex;
+        justify-content: space-between;
+        width: 40vw;
+        @media screen and (max-width: 1000px) {
+          width: 80vw;
+        }
+        @media screen and (max-width: 500px) {
+          flex-direction: column;
+          align-items: center;
+        }
+        .prices-lhs,
+        .prices-rhs {
+          margin: 4px;
+          padding: 4px 5% 4px 0px;
+          width: 20vw;
+          display: flex;
+          justify-content: space-between;
+          @media screen and (max-width: 1000px) {
+            width: 80vw;
+          }
+          @media screen and (max-width: 500px) {
+            padding: 4px;
+            width: 60vw;
+          }
+          p {
+            margin: 0px;
+          }
+          .prices-heading {
+            letter-spacing: 1px;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+}

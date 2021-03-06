@@ -2,8 +2,9 @@
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding-right: 3%;
   .logo {
     width: 150px;
     margin: 40px;
@@ -31,13 +32,17 @@ header {
       letter-spacing: 1px;
       color: $text-color;
     }
+    .home-link,
     .selected {
-      color: white;
-      background-color: $theme-color;
       padding: 12px;
       border-radius: 8px;
     }
-    .selected:hover {
+    .selected {
+      color: white;
+      background-color: $theme-color;
+    }
+    .selected:hover,
+    .home-link:hover {
       background-color: $theme-color + 20%;
     }
   }
