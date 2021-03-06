@@ -42,3 +42,9 @@ $text-color-hover: white;
   text-transform: uppercase;
   text-align: center;
 }
+
+@mixin industry-and-current-price-label {
+  font-style: italic;
+  letter-spacing: 1px;
+  font-weight: 300;
+}

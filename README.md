@@ -64,6 +64,11 @@ Add image of project (giphy)
 
 ### As a user, I want to see a graph of the cost of stocks within a certain timeline.
 
+- Price heading
+  - call APIs for information
+  - convert IPO
+  - convert market cap
+
 ### As a user, I want to see the current news about the company/stock.
 
 ### As a user, I want to see the current analysis for the stock.

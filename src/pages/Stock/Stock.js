@@ -9,7 +9,6 @@ const Stock = () => {
   const { symbol } = useParams();
   const [companyProfile, setCompanyProfile] = useState(null);
   const [quote, setQuote] = useState(null);
-  console.log(companyProfile);
 
   //Get company data
   useEffect(() => {
@@ -41,8 +40,6 @@ const Stock = () => {
     fetchQuote();
   }, [symbol]);
 
-  console.log(quote);
-
   return (
     <>
       {companyProfile && quote ? (
@@ -51,6 +48,12 @@ const Stock = () => {
           ticker={companyProfile.ticker}
           industry={companyProfile.finnhubIndustry}
           currentPrice={quote.c}
+          openPrice={quote.o}
+          prevClose={quote.pc}
+          high={quote.h}
+          low={quote.l}
+          marketCap={companyProfile.marketCapitalization}
+          ipo={companyProfile.ipo}
         />
       ) : (
         <LoadingSearchAPI />
