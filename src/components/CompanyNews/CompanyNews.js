@@ -9,21 +9,51 @@ const CompanyNews = ({ symbol, companyName }) => {
   const [companyNews, setCompanyNews] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const today = Date.now();
+  // Get today's date and format it to use for the API
+  const today = new Date();
 
-  const newDate = new Date(today);
-  const year = newDate.getFullYear();
-  const day = newDate.getDate();
-  const month_num = newDate.getMonth();
+  const day = today.getDate(); // day
+  let dayString;
+  if (day.toString().split("").length === 1) {
+    dayString = `0${day}`;
+  } else {
+    dayString = `${day}`;
+  }
+  const month = today.getMonth() + 1; //month
+  let monthString;
+  if (month.toString().split("").length === 1) {
+    monthString = `0${month}`;
+  } else {
+    monthString = `${month}`;
+  }
+  const year = today.getFullYear(); //year
+  const todayFormat = `${year}-${monthString}-${dayString}`;
 
-  // convert date formats so I can use them when calling api
+  // Get last month's date and format it to use for the API
+  const monthAgo = (dayString, month, year) => {
+    let lastMonth;
+    if (month === 1) {
+      // If month is January, last month will be December of previous year
+      lastMonth = 12;
+      year = year - 1;
+    } else {
+      lastMonth = month - 1;
+    }
+    let lastMonthString;
+    if (lastMonth.toString().split("").length === 1) {
+      lastMonthString = `0${lastMonth}`;
+    } else {
+      lastMonthString = `${lastMonth}`;
+    }
+    return `${year}-${lastMonthString}-${dayString}`;
+  };
+  const monthAgoFormat = monthAgo(dayString, month, year);
 
-  console.log(`${year} ${day} ${month_num}`);
   useEffect(() => {
     async function fetchCompanyNews() {
       try {
         const result = await axios.get(
-          `https://finnhub.io/api/v1/company-news?symbol=${symbol}&from=2020-04-30&to=2020-05-01&token=${process.env.REACT_APP_API_KEY}`
+          `https://finnhub.io/api/v1/company-news?symbol=${symbol}&from=${monthAgoFormat}&to=${todayFormat}&token=${process.env.REACT_APP_API_KEY}`
         );
         console.log(result.data);
         const firstFiveNews = result.data.slice(0, 5);
@@ -35,7 +65,7 @@ const CompanyNews = ({ symbol, companyName }) => {
       }
     }
     fetchCompanyNews();
-  }, [symbol]);
+  }, [symbol, todayFormat, monthAgoFormat]);
 
   if (loading) {
     return <LoadingCurrentNews />;
@@ -46,7 +76,7 @@ const CompanyNews = ({ symbol, companyName }) => {
     <section className="current-news-wrapper">
       <div className="current-news">
         <h1 className="current-news-title">
-          {`News about ${companyName}`}{" "}
+          {`See the latest news about ${companyName}`}{" "}
           <i className="fas fa-newspaper">
             <span className="sr-only">Newspaper icon</span>
           </i>
