@@ -4,6 +4,7 @@ import CompanySummary from "../../components/CompanySummary/CompanySummary";
 import "./Stock.scss";
 import axios from "axios";
 import LoadingSearchAPI from "../../components/Loading/LoadingSearchAPI";
+import CompanyNews from "../../components/CompanyNews/CompanyNews";
 
 const Stock = () => {
   const { symbol } = useParams();
@@ -55,6 +56,12 @@ const Stock = () => {
           marketCap={companyProfile.marketCapitalization}
           ipo={companyProfile.ipo}
         />
+      ) : (
+        <LoadingSearchAPI />
+      )}
+
+      {companyProfile && quote ? (
+        <CompanyNews symbol={symbol} companyName={companyProfile.name} />
       ) : (
         <LoadingSearchAPI />
       )}
