@@ -1,0 +1,57 @@
+@import "../../assets/variables.scss";
+
+.analysis-title {
+  @include headings;
+}
+.Strong-Buy {
+  color: #ff526d;
+}
+.Buy {
+  color: #fb9d2e;
+}
+.Hold {
+  color: #a7b0ba;
+}
+.Sell {
+  color: #6fb74e;
+}
+.Strong-Sell {
+  color: #10a57a;
+}
+.advice-and-chart {
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+  }
+  .advice {
+    padding: 5%;
+    .advice-date,
+    .disclaimer {
+      font-weight: 300;
+    }
+    .advice-heading {
+      @include headings;
+      font-weight: 500;
+    }
+    .disclaimer {
+      font-style: italic;
+    }
+  }
+}
+.analysis-bar-chat-wrapper {
+  padding-right: 5%;
+  @media screen and (max-width: 700px) {
+    padding-right: 0;
+  }
+  .analysis-bar-chart {
+    height: 450px;
+    width: 60vw;
+    border: 1px darkgrey solid;
+    border-radius: 4px;
+    margin: 12px;
+    @media screen and (max-width: 700px) {
+      width: 90vw;
+    }
+  }
+}
