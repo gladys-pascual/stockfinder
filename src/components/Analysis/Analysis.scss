@@ -1,22 +1,24 @@
 @import "../../assets/variables.scss";
-
+.analysis {
+  padding-bottom: 10vh;
+}
 .analysis-title {
   @include headings;
 }
 .Strong-Buy {
-  color: #ff526d;
+  color: #10a57a;
 }
 .Buy {
-  color: #fb9d2e;
-}
-.Hold {
-  color: #a7b0ba;
-}
-.Sell {
   color: #6fb74e;
 }
+.Hold {
+  color: #61a1eb;
+}
+.Sell {
+  color: #fb9d2e;
+}
 .Strong-Sell {
-  color: #10a57a;
+  color: #ff526d;
 }
 .advice-and-chart {
   display: flex;

@@ -30,13 +30,10 @@ const CompanySummary = ({
       return `${price.toFixed(1)} M`;
     } else if (
       price.toFixed(0).toString().length > 3 &&
-      price.toFixed(0).toString().length < 6
+      price.toFixed(0).toString().length <= 6
     ) {
       return `${(price / 1000).toFixed(1)} B`;
-    } else if (
-      price.toFixed(0).toString().length > 6 &&
-      price.toFixed(0).toString().length < 9
-    ) {
+    } else if (price.toFixed(0).toString().length > 6) {
       return `${(price / 1000000).toFixed(1)} T`;
     }
   };

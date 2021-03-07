@@ -14,6 +14,7 @@ const Stock = () => {
   const [quote, setQuote] = useState(null);
   // const [stockOneDay, setStockOneDay] = useState(null);
 
+  console.log(companyProfile);
   //Get company data
   useEffect(() => {
     async function fetchCompanyProfile() {
