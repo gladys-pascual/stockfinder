@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import CompanySummary from "../../components/CompanySummary/CompanySummary";
 import "./Stock.scss";
@@ -12,9 +12,9 @@ const Stock = () => {
   const { symbol } = useParams();
   const [companyProfile, setCompanyProfile] = useState(null);
   const [quote, setQuote] = useState(null);
-  // const [stockOneDay, setStockOneDay] = useState(null);
+  const [stockData, setStockData] = useState(null);
+  const [startDateMultiplier, setstartDateMultiplier] = useState(5);
 
-  console.log(companyProfile);
   //Get company data
   useEffect(() => {
     async function fetchCompanyProfile() {
@@ -46,33 +46,30 @@ const Stock = () => {
   }, [symbol]);
 
   //Get stock prices
-  // 1 day
-  // const now = Date.now();
-  // const oneDayAgo = now - 86400000 * 5;
+  const now = useMemo(() => {
+    return Math.floor(Date.now() / 1000);
+  }, []);
 
-  // useEffect(() => {
-  //   async function fetchStockOneDay() {
-  //     try {
-  //       const result = await axios.get(
-  //         `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=D&from=${oneDayAgo}&to=${now}&token=${process.env.REACT_APP_API_KEY}`
-  //       );
-  //       console.log(result.data);
-  //     } catch (err) {
-  //       console.log("Error fetching and parsing data", err);
-  //     }
-  //   }
-  //   fetchStockOneDay();
-  // }, [symbol, oneDayAgo, now]);
+  const startDate = now - 86400 * startDateMultiplier;
 
-  // 5 days
+  const startDateHandler = (multiplier) => {
+    setstartDateMultiplier(multiplier);
+    console.log("multiplier", multiplier);
+  };
 
-  // 1 month
-
-  // 3 months
-
-  // 1 year
-
-  // 5 years
+  useEffect(() => {
+    async function fetchStockData() {
+      try {
+        const result = await axios.get(
+          `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=60&from=${startDate}&to=${now}&token=${process.env.REACT_APP_API_KEY}`
+        );
+        setStockData(result.data);
+      } catch (err) {
+        console.log("Error fetching and parsing data", err);
+      }
+    }
+    fetchStockData();
+  }, [symbol, startDate, now]);
 
   return (
     <>
@@ -93,7 +90,7 @@ const Stock = () => {
         <LoadingSearchAPI />
       )}
 
-      <Graph />
+      <Graph stockData={stockData} startDateHandler={startDateHandler} />
 
       {companyProfile && quote ? (
         <Analysis symbol={symbol} companyName={companyProfile.name} />

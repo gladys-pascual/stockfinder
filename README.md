@@ -152,7 +152,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 During testing, the following errors were found and were rectified:
 
-- XXX
+- Market cap logic in company summary - didn't work on billions due to error in logic.
 
 - XXX
 
