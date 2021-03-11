@@ -1,0 +1,17 @@
+.stock-graph-wrapper {
+  margin: 50px 0px 100px 0px;
+  display: flex;
+  justify-content: center;
+  .stock-graph {
+    width: 90vw;
+    .stock-buttons-container {
+      button {
+        width: 50px;
+        padding: 8px;
+      }
+    }
+    .graph-line-chart {
+      height: 450px;
+    }
+  }
+}

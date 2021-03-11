@@ -30,6 +30,7 @@ const Analysis = ({ symbol, companyName }) => {
   }
 
   const period = analysisData.period;
+
   const formatDate = (date) => {
     const splitDate = date.split("");
 
