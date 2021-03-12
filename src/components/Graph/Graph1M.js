@@ -6,7 +6,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 
 const Graph1M = ({ close, date }) => {
   const formatDate = date.map((date, i) => {
-    return dayjs.unix(date).format("DD/MM");
+    return dayjs.unix(date).format("DD MMM");
   });
 
   function aggregatingData(c, d) {

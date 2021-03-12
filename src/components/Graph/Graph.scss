@@ -1,3 +1,4 @@
+@import "../../assets/variables.scss";
 .stock-graph-wrapper {
   margin: 50px 0px 100px 0px;
   display: flex;
@@ -8,11 +9,25 @@
       display: flex;
       justify-content: center;
       button {
-        width: 50px;
-        padding: 8px;
+        width: 60px;
+        padding: 8px 16px;
+        font-size: 1.2em;
       }
+      button:hover {
+        cursor: pointer;
+        background-color: lightgrey;
+        border-radius: 4px;
+      }
+
       .active {
-        color: pink;
+        margin: 0;
+        background-color: $theme-color + 20%;
+        border: $theme-color;
+        border-radius: 4px;
+      }
+      .not-active {
+        background-color: white;
+        border: none;
       }
     }
     .graph-line-chart {

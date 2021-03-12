@@ -6,7 +6,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 
 const Graph5D = ({ close, date }) => {
   const formatDate = date.map((date, i) => {
-    return dayjs.unix(date).format("HH:MM DD/MM");
+    return dayjs.unix(date).format("HH:MM DD MMM");
   });
 
   function aggregatingData(c, d) {

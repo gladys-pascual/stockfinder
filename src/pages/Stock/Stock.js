@@ -7,15 +7,11 @@ import LoadingSearchAPI from "../../components/Loading/LoadingSearchAPI";
 import CompanyNews from "../../components/CompanyNews/CompanyNews";
 import Graph from "../../components/Graph/Graph";
 import Analysis from "../../components/Analysis/Analysis";
-import LoadingStockGraph from "../../components/Loading/LoadingStockGraph";
 
 const Stock = () => {
   const { symbol } = useParams();
   const [companyProfile, setCompanyProfile] = useState(null);
   const [quote, setQuote] = useState(null);
-  const [stockData, setStockData] = useState(null);
-  const [multiplier, setMultiplier] = useState(5);
-  const [resolution, setResolution] = useState(60);
 
   //Get company data
   useEffect(() => {
@@ -47,33 +43,6 @@ const Stock = () => {
     fetchQuote();
   }, [symbol]);
 
-  //Get stock prices
-  const now = useMemo(() => {
-    return Math.floor(Date.now() / 1000);
-  }, []);
-
-  const startDate = now - 86400 * multiplier;
-
-  const startDateHandler = (multiplier, resolution) => {
-    setStockData(null);
-    setMultiplier(multiplier);
-    setResolution(resolution);
-  };
-
-  useEffect(() => {
-    async function fetchStockData() {
-      try {
-        const result = await axios.get(
-          `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=${resolution}&from=${startDate}&to=${now}&token=${process.env.REACT_APP_API_KEY}`
-        );
-        setStockData(result.data);
-      } catch (err) {
-        console.log("Error fetching and parsing data", err);
-      }
-    }
-    fetchStockData();
-  }, [symbol, resolution, startDate, now]);
-
   return (
     <>
       {companyProfile && quote ? (
@@ -92,16 +61,8 @@ const Stock = () => {
       ) : (
         <LoadingSearchAPI />
       )}
-      {stockData ? (
-        <Graph
-          startDateHandler={startDateHandler}
-          close={stockData.c}
-          date={stockData.t}
-          multiplier={multiplier}
-        />
-      ) : (
-        <LoadingStockGraph />
-      )}
+
+      <Graph symbol={symbol} />
 
       {companyProfile && quote ? (
         <Analysis symbol={symbol} companyName={companyProfile.name} />

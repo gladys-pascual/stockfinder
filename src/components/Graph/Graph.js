@@ -1,26 +1,66 @@
 import "./Graph.scss";
+import axios from "axios";
 import PropTypes from "prop-types";
 import Graph5D from "./Graph5D";
 import Graph1M from "./Graph1M";
 import Graph3M from "./Graph3M";
 import Graph1Y from "./Graph1Y";
 import Graph5Y from "./Graph5Y";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
+import LoadingStockGraph from "../../components/Loading/LoadingStockGraph";
 
-const Graph = ({ startDateHandler, close, date, multiplier }) => {
+const Graph = ({ symbol }) => {
   const [selectedButton, setSelectedButton] = useState(1);
+  const [stockData, setStockData] = useState(null);
+  const [multiplier, setMultiplier] = useState(5);
+  const [resolution, setResolution] = useState(60);
+  const [loading, setLoading] = useState(true);
+
+  //Get stock prices
+  const now = useMemo(() => {
+    return Math.floor(Date.now() / 1000);
+  }, []);
+
+  const startDate = now - 86400 * multiplier;
+
+  const startDateHandler = (multiplier, resolution) => {
+    setMultiplier(multiplier);
+    setResolution(resolution);
+  };
+
+  useEffect(() => {
+    async function fetchStockData() {
+      try {
+        setLoading(true);
+        const result = await axios.get(
+          `https://finnhub.io/api/v1/stock/candle?symbol=${symbol}&resolution=${resolution}&from=${startDate}&to=${now}&token=${process.env.REACT_APP_API_KEY}`
+        );
+        setStockData(result.data);
+        setLoading(false);
+      } catch (err) {
+        console.log("Error fetching and parsing data", err);
+        setLoading(false);
+      }
+    }
+    fetchStockData();
+  }, [symbol, resolution, startDate, now]);
+
+  if (loading) {
+    return <LoadingStockGraph />;
+  }
+  console.log(stockData);
 
   let graphChart;
   if (multiplier === 5) {
-    graphChart = <Graph5D close={close} date={date} />;
+    graphChart = <Graph5D close={stockData.c} date={stockData.t} />;
   } else if (multiplier === 30) {
-    graphChart = <Graph1M close={close} date={date} />;
+    graphChart = <Graph1M close={stockData.c} date={stockData.t} />;
   } else if (multiplier === 180) {
-    graphChart = <Graph3M close={close} date={date} />;
+    graphChart = <Graph3M close={stockData.c} date={stockData.t} />;
   } else if (multiplier === 360) {
-    graphChart = <Graph1Y close={close} date={date} />;
+    graphChart = <Graph1Y close={stockData.c} date={stockData.t} />;
   } else if (multiplier === 1800) {
-    graphChart = <Graph5Y close={close} date={date} />;
+    graphChart = <Graph5Y close={stockData.c} date={stockData.t} />;
   }
 
   const handleClick = (buttonNumber) => {
@@ -86,10 +126,7 @@ const Graph = ({ startDateHandler, close, date, multiplier }) => {
 };
 
 Graph.propTypes = {
-  startDateHandler: PropTypes.func.isRequired,
-  close: PropTypes.array.isRequired,
-  date: PropTypes.array.isRequired,
-  multiplier: PropTypes.number.isRequired,
+  symbol: PropTypes.string.isRequired,
 };
 
 export default Graph;
