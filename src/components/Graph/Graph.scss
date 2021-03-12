@@ -5,9 +5,14 @@
   .stock-graph {
     width: 90vw;
     .stock-buttons-container {
+      display: flex;
+      justify-content: center;
       button {
         width: 50px;
         padding: 8px;
+      }
+      .active {
+        color: pink;
       }
     }
     .graph-line-chart {

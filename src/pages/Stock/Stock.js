@@ -7,6 +7,7 @@ import LoadingSearchAPI from "../../components/Loading/LoadingSearchAPI";
 import CompanyNews from "../../components/CompanyNews/CompanyNews";
 import Graph from "../../components/Graph/Graph";
 import Analysis from "../../components/Analysis/Analysis";
+import LoadingStockGraph from "../../components/Loading/LoadingStockGraph";
 
 const Stock = () => {
   const { symbol } = useParams();
@@ -54,6 +55,7 @@ const Stock = () => {
   const startDate = now - 86400 * multiplier;
 
   const startDateHandler = (multiplier, resolution) => {
+    setStockData(null);
     setMultiplier(multiplier);
     setResolution(resolution);
   };
@@ -96,12 +98,9 @@ const Stock = () => {
           close={stockData.c}
           date={stockData.t}
           multiplier={multiplier}
-          // open={stockData.o}
-          // high={stockData.h}
-          // low={stockData.l}
         />
       ) : (
-        <LoadingSearchAPI />
+        <LoadingStockGraph />
       )}
 
       {companyProfile && quote ? (

@@ -1,5 +1,5 @@
 import PacmanLoader from "react-spinners/PacmanLoader";
-import "./LoadingMarketNews.scss";
+import "./Loading.scss";
 
 const LoadingCurrentNews = () => {
   return (
