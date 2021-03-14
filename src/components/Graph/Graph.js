@@ -48,7 +48,6 @@ const Graph = ({ symbol }) => {
   if (loading) {
     return <LoadingStockGraph />;
   }
-  console.log(stockData);
 
   let graphChart;
   if (multiplier === 5) {
@@ -64,7 +63,6 @@ const Graph = ({ symbol }) => {
   }
 
   const handleClick = (buttonNumber) => {
-    console.log("button number", buttonNumber);
     setSelectedButton(buttonNumber);
   };
   console.log(selectedButton);

@@ -38,9 +38,9 @@ const Graph1M = ({ close, date }) => {
           orient: "bottom",
           tickSize: 5,
           tickPadding: 5,
-          tickRotation: 0,
+          tickRotation: 45,
           legend: "Date",
-          legendOffset: 40,
+          legendOffset: 55,
           legendPosition: "middle",
         };
 
@@ -48,7 +48,7 @@ const Graph1M = ({ close, date }) => {
     <section className="graph-line-chart">
       <ResponsiveLine
         data={aggregatedData}
-        margin={{ top: 50, right: 80, bottom: 50, left: 50 }}
+        margin={{ top: 50, right: 80, bottom: 80, left: 50 }}
         xScale={{ type: "point" }}
         yScale={{
           type: "linear",
