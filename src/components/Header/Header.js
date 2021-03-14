@@ -15,9 +15,18 @@ const Header = () => {
               exact={true}
               to="/"
               activeClassName="selected"
-              className="home-link"
+              className="header-link"
             >
               Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/marketnews"
+              activeClassName="selected"
+              className="header-link"
+            >
+              Market News
             </NavLink>
           </li>
         </ul>

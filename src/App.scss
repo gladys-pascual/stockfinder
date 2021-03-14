@@ -11,3 +11,30 @@ body {
 .no-display {
   display: none;
 }
+
+/* Sticky footer on homepage*/
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+}
+
+.footer-section {
+  flex-shrink: 0;
+}

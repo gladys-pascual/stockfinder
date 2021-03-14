@@ -93,9 +93,6 @@ const Search = () => {
             placeholder="Search for symbol or company name..."
             onChange={debouncedInputChange}
           ></input>
-          <button type="submit" id="submit">
-            <p>Search</p>
-          </button>
         </div>
       </form>
       <div className="query-results-list">

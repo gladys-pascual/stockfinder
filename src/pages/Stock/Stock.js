@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CompanySummary from "../../components/CompanySummary/CompanySummary";
 import "./Stock.scss";
