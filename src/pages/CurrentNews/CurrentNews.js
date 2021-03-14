@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import News from "../News/News";
+import News from "../../components/News/News";
 import "./CurrentNews.scss";
 import axios from "axios";
-import LoadingMarketNews from "../Loading/LoadingMarketNews";
+import LoadingMarketNews from "../../components/Loading/LoadingMarketNews";
 
 const CurrentNews = () => {
   const [currentNews, setCurrentNews] = useState([]);
