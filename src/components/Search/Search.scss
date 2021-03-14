@@ -7,13 +7,14 @@
 
   .form-wrapper {
     border: 1px solid lightgrey;
-    border-radius: 30px;
-    padding-left: 20px;
+    border-radius: 16px;
+    padding: 0px 20px;
     @media screen and (max-width: 500px) {
       padding-left: 12px;
     }
   }
   .search-input {
+    height: 36px;
     width: 50vw;
     letter-spacing: 1px;
     border: none;
@@ -25,30 +26,6 @@
       font-size: 12px;
       width: 65vw;
     }
-  }
-  button {
-    width: 120px;
-    background-color: $theme-color;
-    border-radius: 30px;
-    border: none;
-    height: 46px;
-    cursor: pointer;
-    @media screen and (max-width: 780px) {
-      width: 80px;
-    }
-    p {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
-      margin: 0px;
-      color: white;
-      @media screen and (max-width: 780px) {
-        font-size: 12px;
-      }
-    }
-  }
-  button:hover {
-    background-color: $theme-color + 20%;
   }
 }
 
