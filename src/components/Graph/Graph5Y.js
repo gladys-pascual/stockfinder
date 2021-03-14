@@ -59,13 +59,13 @@ const Graph5Y = ({ close, date }) => {
           useUTC: false,
           precision: "day",
         }}
-        xFormat="time:%Y-%m-%d"
+        xFormat="time:%d %b %Y"
         yScale={{
           type: "linear",
           min: "auto",
           max: "auto",
         }}
-        yFormat="<-.2f"
+        yFormat="<-$.2f"
         colors={[color]}
         axisBottom={axisBottomFormat}
         axisRight={{
