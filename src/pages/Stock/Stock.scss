@@ -1,0 +1,14 @@
+.stock-graph-wrapper {
+  margin: 50px 0px;
+  display: flex;
+  justify-content: center;
+  .stock-graph {
+    width: 70vw;
+    .stock-buttons-container {
+      button {
+        width: 50px;
+        padding: 8px;
+      }
+    }
+  }
+}

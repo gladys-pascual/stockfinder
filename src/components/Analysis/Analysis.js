@@ -30,6 +30,7 @@ const Analysis = ({ symbol, companyName }) => {
   }
 
   const period = analysisData.period;
+
   const formatDate = (date) => {
     const splitDate = date.split("");
 
@@ -94,7 +95,7 @@ const Analysis = ({ symbol, companyName }) => {
   }
 
   return (
-    <section>
+    <section className="analysis">
       <h1 className="analysis-title">
         {`Analysis for ${companyName}`}{" "}
         <i className="fas fa-chart-bar">

@@ -1,0 +1,31 @@
+@import "../../assets/variables.scss";
+
+.loading-heading {
+  @include headings;
+}
+.loading-market-news {
+  padding: 50px 0px 50px 45vw;
+  display: flex;
+  max-width: 100%;
+  @media screen and (max-width: 500px) {
+    padding-left: 20vw;
+  }
+}
+
+.loading-stock-graph-header {
+  padding-top: 80px;
+}
+.loading-stock-graph {
+  height: 50vh;
+  display: flex;
+  max-width: 100%;
+  padding: 50px 0px 50px 45vw;
+  @media screen and (max-width: 500px) {
+    padding-left: 20vw;
+  }
+}
+.loading-search-api {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}

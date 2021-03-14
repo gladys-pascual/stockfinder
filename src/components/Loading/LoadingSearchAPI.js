@@ -1,5 +1,5 @@
 import SyncLoader from "react-spinners/SyncLoader";
-import "./LoadingSearchAPI.scss";
+import "./Loading.scss";
 
 const LoadingSearchAPI = () => {
   return (

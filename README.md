@@ -68,6 +68,8 @@ Add image of project (giphy)
   - call APIs for information
   - convert IPO
   - convert market cap
+- Graph
+  - too many data on x axis, when window size is smaller than 1000, remove data label. Can hover to see data.
 
 ### As a user, I want to see the current news about the company/stock.
 
@@ -152,7 +154,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 During testing, the following errors were found and were rectified:
 
-- XXX
+- Market cap logic in company summary - didn't work on billions due to error in logic.
 
 - XXX
 

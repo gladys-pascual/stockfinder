@@ -47,7 +47,7 @@ const AnalysisBarChart = ({
         keys={["Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"]}
         margin={{ top: 50, right: 0, bottom: 50, left: 0 }}
         padding={0.3}
-        colors={["#FF526D", "#FB9D2E", "#A7B0BA", "#6FB74E", "#10A57A"]}
+        colors={["#10A57A", "#6FB74E", "#61A1EB", "#FB9D2E", "#FF526D"]}
         label={(d) => `${d.value}%`}
         enableGridY={false}
         axisTop={null}
