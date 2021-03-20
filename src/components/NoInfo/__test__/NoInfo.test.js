@@ -1,14 +1,13 @@
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import NoInfo from "../NoInfo";
 
-test("renders learn react link", () => {
+test("render NoInfo component as expected", () => {
   const { container } = render(
     <BrowserRouter>
-      <App />
+      <NoInfo />
     </BrowserRouter>
   );
-  // const linkElement = screen.getByText(/learn react/i);
-  // expect(linkElement).toBeInTheDocument();
+
   expect(container).toMatchSnapshot();
 });

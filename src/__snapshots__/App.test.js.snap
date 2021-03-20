@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<div>
+  <header>
+    <a
+      class="logo"
+      exact="true"
+      href="/"
+    >
+      <img
+        alt="Logo of StockFinder"
+        src="StockFinderLogo.svg"
+      />
+    </a>
+    <nav>
+      <ul>
+        <li>
+          <a
+            aria-current="page"
+            class="header-link selected"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            class="header-link"
+            href="/marketnews"
+          >
+            Market News
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div
+    class="content"
+  >
+    <div
+      class="home"
+    >
+      <form
+        class="search-form"
+      >
+        <div
+          class="form-wrapper"
+        >
+          <input
+            class="search-input"
+            name="query"
+            placeholder="Search for symbol or company name..."
+            type="text"
+          />
+        </div>
+      </form>
+      <div
+        class="query-results-list"
+      >
+        <ul
+          class="results"
+        />
+      </div>
+    </div>
+  </div>
+  <footer
+    class="footer-section"
+  >
+    <a
+      class="finnhub"
+      href="https://finnhub.io/docs/api"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <div
+        class="finnhub-logo"
+        href="https://finnhub.io/docs/api"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Finnhub logo"
+          class="finnhub-logo-img"
+          src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
+        />
+      </div>
+      <p
+        class="finnhub-text"
+      >
+        This website uses the Finnhub API.
+      </p>
+    </a>
+    <ul
+      class="footer-socials"
+    >
+      <li>
+        <a
+          href="https://github.com/gladys-pascual/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-github"
+          >
+            <span
+              class="sr-only"
+            >
+              GitHub icon
+            </span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://dev.to/gladyspascual"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-dev"
+          >
+            <span
+              class="sr-only"
+            >
+              Dev icon
+            </span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/gladyspascual/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-linkedin"
+          >
+            <span
+              class="sr-only"
+            >
+              LinkedIn icon
+            </span>
+          </i>
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>
+`;

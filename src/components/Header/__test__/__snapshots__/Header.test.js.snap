@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Header component as expected 1`] = `
+<div>
+  <header>
+    <a
+      class="logo"
+      exact="true"
+      href="/"
+    >
+      <img
+        alt="Logo of StockFinder"
+        src="StockFinderLogo.svg"
+      />
+    </a>
+    <nav>
+      <ul>
+        <li>
+          <a
+            aria-current="page"
+            class="header-link selected"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            class="header-link"
+            href="/marketnews"
+          >
+            Market News
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+`;

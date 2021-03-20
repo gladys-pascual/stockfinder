@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render News component as expected 1`] = `
+<div>
+  <a
+    class="news-link"
+    href="https://www.cnbc.com/2021/03/19/jemele-hill-ncaa-weight-room-discrepancy-reflects-chronic-gender-inequality.html"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <section
+      class="news"
+    >
+      <div
+        class="news-picture"
+      >
+        <img
+          src="https://image.cnbcfm.com/api/v1/image/106441745-1584104407165gettyimages-1137152686.jpeg?v=1584104447"
+        />
+      </div>
+      <div
+        class="news-info"
+      >
+        <div
+          class="category-source-time"
+        >
+          <p
+            class="category top-news"
+          >
+            Top News
+          </p>
+          <p
+            class="source"
+          >
+            CNBC
+          </p>
+          <p
+            class="time"
+          >
+            12 hours ago
+          </p>
+        </div>
+        <h3
+          class="headline"
+        >
+          NCAA weight room discrepancy shows 'they don't think these women are worth it,' says Jemele Hill
+        </h3>
+        <p
+          class="summary"
+        >
+          A Stanford University sports performance coach posted photos to Twitter Thursday revealing inequities between the women's and men's weight rooms.
+        </p>
+      </div>
+    </section>
+  </a>
+</div>
+`;

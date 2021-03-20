@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders LoadingCurrentNews component as expected 1`] = `
+<div>
+  <h1
+    class="loading-heading"
+  >
+    Loading the latest company news...
+  </h1>
+  <div
+    class="loading-market-news"
+  >
+    <span
+      class="css-8pkz"
+    >
+      <span
+        class="css-rxlor6"
+      />
+      <span
+        class="css-13u5b26"
+      />
+      <span
+        class="css-144dyr7"
+      />
+      <span
+        class="css-pu3zi4"
+      />
+      <span
+        class="css-tzx4d9"
+      />
+      <span
+        class="css-1mjpbtg"
+      />
+    </span>
+  </div>
+</div>
+`;

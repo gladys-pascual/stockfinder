@@ -1,14 +1,13 @@
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import Stock from "../Stock";
 
-test("renders learn react link", () => {
+test("render Stock component as expected", () => {
   const { container } = render(
     <BrowserRouter>
-      <App />
+      <Stock />
     </BrowserRouter>
   );
-  // const linkElement = screen.getByText(/learn react/i);
-  // expect(linkElement).toBeInTheDocument();
+
   expect(container).toMatchSnapshot();
 });

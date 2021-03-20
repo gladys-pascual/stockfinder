@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Footer as expected 1`] = `
+<div>
+  <footer
+    class="footer-section"
+  >
+    <a
+      class="finnhub"
+      href="https://finnhub.io/docs/api"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <div
+        class="finnhub-logo"
+        href="https://finnhub.io/docs/api"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Finnhub logo"
+          class="finnhub-logo-img"
+          src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
+        />
+      </div>
+      <p
+        class="finnhub-text"
+      >
+        This website uses the Finnhub API.
+      </p>
+    </a>
+    <ul
+      class="footer-socials"
+    >
+      <li>
+        <a
+          href="https://github.com/gladys-pascual/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-github"
+          >
+            <span
+              class="sr-only"
+            >
+              GitHub icon
+            </span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://dev.to/gladyspascual"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-dev"
+          >
+            <span
+              class="sr-only"
+            >
+              Dev icon
+            </span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/gladyspascual/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-linkedin"
+          >
+            <span
+              class="sr-only"
+            >
+              LinkedIn icon
+            </span>
+          </i>
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>
+`;
