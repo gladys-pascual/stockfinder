@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Stock component as expected 1`] = `
+<div>
+  <div
+    class="loading-search-api"
+  >
+    <span
+      class="css-0"
+    >
+      <span
+        class="css-158729u"
+      />
+      <span
+        class="css-jyyt77"
+      />
+      <span
+        class="css-uj62sn"
+      />
+    </span>
+  </div>
+</div>
+`;

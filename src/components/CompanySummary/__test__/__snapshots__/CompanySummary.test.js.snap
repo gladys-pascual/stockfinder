@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render CompanySummary component as expected 1`] = `
+<div>
+  <section
+    class="company-summary"
+  >
+    <div
+      class="summary-wrapper"
+    >
+      <div
+        class="lhs"
+      >
+        <div
+          class="company-header"
+        >
+          <h1
+            class="ticker"
+          >
+            AAPL
+          </h1>
+          <div>
+            <p
+              class="company-name"
+            >
+              Apple Inc
+            </p>
+            <p
+              class="industry"
+            >
+              Technology
+            </p>
+          </div>
+        </div>
+        <p
+          class="current-price-label profit"
+        >
+          Current Price
+        </p>
+        <div
+          class="price-and-pnl"
+        >
+          <h1
+            class="current-price profit"
+          >
+            120.62
+          </h1>
+          <p
+            class="profit pnl"
+          >
+            +0.6 %
+          </p>
+        </div>
+      </div>
+      <div
+        class="rhs"
+      >
+        <div
+          class="prices"
+        >
+          <div
+            class="prices-lhs"
+          >
+            <p
+              class="prices-heading"
+            >
+              OPEN
+            </p>
+            <p
+              class="prices-text"
+            >
+              119.9
+            </p>
+          </div>
+          <div
+            class="prices-rhs"
+          >
+            <p
+              class="prices-heading"
+            >
+              PREV CLOSE
+            </p>
+            <p
+              class="prices-text"
+            >
+              120.53
+            </p>
+          </div>
+        </div>
+        <div
+          class="prices"
+        >
+          <div
+            class="prices-lhs"
+          >
+            <p
+              class="prices-heading"
+            >
+              HIGH
+            </p>
+            <p
+              class="prices-text"
+            >
+              121.43
+            </p>
+          </div>
+          <div
+            class="prices-rhs"
+          >
+            <p
+              class="prices-heading"
+            >
+              LOW
+            </p>
+            <p
+              class="prices-text"
+            >
+              119.675
+            </p>
+          </div>
+        </div>
+        <div
+          class="prices"
+        >
+          <div
+            class="prices-lhs"
+          >
+            <p
+              class="prices-heading"
+            >
+              MARKET CAP
+            </p>
+            <p
+              class="prices-text"
+            >
+              2.0 T
+            </p>
+          </div>
+          <div
+            class="prices-rhs"
+          >
+            <p
+              class="prices-heading"
+            >
+              IPO
+            </p>
+            <p
+              class="prices-text"
+            >
+              Dec 1980
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

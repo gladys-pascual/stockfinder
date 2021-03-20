@@ -9,6 +9,8 @@ const CompanyNews = ({ symbol, companyName }) => {
   const [loading, setLoading] = useState(true);
   const [noInfo, setNoInfo] = useState(false);
 
+  console.log(symbol);
+  console.log(companyName);
   // Get today's date and format it to use for the API
   const today = new Date();
 
