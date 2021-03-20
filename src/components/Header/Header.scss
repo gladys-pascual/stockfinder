@@ -28,6 +28,7 @@ header {
     }
     li {
       margin: 0px 12px;
+      text-align: center;
     }
     a {
       text-decoration: none;
@@ -45,8 +46,8 @@ header {
       background-color: $theme-color;
     }
     .selected:hover,
-    .home-link:hover {
-      background-color: $theme-color + 20%;
+    .header-link:hover {
+      background-color: $theme-color-hover;
     }
   }
 }

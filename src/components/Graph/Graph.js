@@ -8,6 +8,7 @@ import Graph1Y from "./Graph1Y";
 import Graph5Y from "./Graph5Y";
 import { useState, useEffect, useMemo } from "react";
 import LoadingStockGraph from "../../components/Loading/LoadingStockGraph";
+import NoInfo from "../../components/NoInfo/NoInfo";
 
 const Graph = ({ symbol }) => {
   const [selectedButton, setSelectedButton] = useState(1);
@@ -15,6 +16,7 @@ const Graph = ({ symbol }) => {
   const [multiplier, setMultiplier] = useState(5);
   const [resolution, setResolution] = useState(60);
   const [loading, setLoading] = useState(true);
+  const [noInfo, setNoInfo] = useState(false);
 
   //Get stock prices
   const now = useMemo(() => {
@@ -39,6 +41,7 @@ const Graph = ({ symbol }) => {
         setLoading(false);
       } catch (err) {
         console.log("Error fetching and parsing data", err);
+        setNoInfo(true);
         setLoading(false);
       }
     }
@@ -47,6 +50,18 @@ const Graph = ({ symbol }) => {
 
   if (loading) {
     return <LoadingStockGraph />;
+  }
+
+  if (noInfo) {
+    return <NoInfo />;
+  }
+
+  if (
+    stockData.s === "no_data" ||
+    stockData === { error: "You don't have access to this resource." }
+  ) {
+    console.log("There is no available price graph for this stock.");
+    return null;
   }
 
   let graphChart;
@@ -65,7 +80,6 @@ const Graph = ({ symbol }) => {
   const handleClick = (buttonNumber) => {
     setSelectedButton(buttonNumber);
   };
-  console.log(selectedButton);
 
   return (
     <section className="stock-graph-wrapper">

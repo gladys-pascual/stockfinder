@@ -55,7 +55,7 @@ const Graph1M = ({ close, date }) => {
           min: "auto",
           max: "auto",
         }}
-        yFormat="<-.2f"
+        yFormat="<-$.2f"
         colors={[color]}
         axisBottom={axisBottomFormat}
         axisRight={{

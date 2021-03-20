@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import LoadingSearchAPI from "../Loading/LoadingSearchAPI";
 import AnalysisBarChart from "./AnalysisBarChart";
+import NoInfo from "../../components/NoInfo/NoInfo";
 
 const Analysis = ({ symbol, companyName }) => {
   const [analysisData, setAnalysisData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [noInfo, setNoInfo] = useState(false);
 
   useEffect(() => {
     async function fetchAnalysisData() {
@@ -19,6 +21,7 @@ const Analysis = ({ symbol, companyName }) => {
         setLoading(false);
       } catch (err) {
         console.log("Error fetching and parsing data", err);
+        setNoInfo(true);
         setLoading(false);
       }
     }
@@ -27,6 +30,18 @@ const Analysis = ({ symbol, companyName }) => {
 
   if (loading) {
     return <LoadingSearchAPI />;
+  }
+
+  if (noInfo) {
+    return <NoInfo />;
+  }
+
+  if (
+    (analysisData && analysisData.length === 0) ||
+    analysisData === undefined
+  ) {
+    console.log("No analysis data available for this stock.");
+    return null;
   }
 
   const period = analysisData.period;

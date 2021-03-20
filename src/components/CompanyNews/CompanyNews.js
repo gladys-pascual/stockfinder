@@ -7,6 +7,7 @@ import News from "../News/News";
 const CompanyNews = ({ symbol, companyName }) => {
   const [companyNews, setCompanyNews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [noInfo, setNoInfo] = useState(false);
 
   // Get today's date and format it to use for the API
   const today = new Date();
@@ -59,6 +60,7 @@ const CompanyNews = ({ symbol, companyName }) => {
         setLoading(false);
       } catch (err) {
         console.log("Error fetching and parsing data", err);
+        setNoInfo(true);
         setLoading(false);
       }
     }
@@ -67,6 +69,13 @@ const CompanyNews = ({ symbol, companyName }) => {
 
   if (loading) {
     return <LoadingCurrentNews />;
+  }
+
+  if (noInfo || companyNews.length === 0) {
+    console.log(
+      "Unfortunately, there is no current news available for this company."
+    );
+    return null;
   }
 
   return (

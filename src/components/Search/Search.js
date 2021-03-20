@@ -3,11 +3,13 @@ import { useHistory } from "react-router-dom";
 import "./Search.scss";
 import axios from "axios";
 import LoadingSearchAPI from "../Loading/LoadingSearchAPI";
+import NoInfo from "../../components/NoInfo/NoInfo";
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [noInfo, setNoInfo] = useState(false);
   let history = useHistory();
 
   async function getCompanyData(inputValue) {
@@ -22,6 +24,7 @@ const Search = () => {
       setLoading(false);
     } catch (err) {
       console.log("Error fetching and parsing data", err);
+      setNoInfo(true);
       setLoading(false);
     }
   }
@@ -81,6 +84,10 @@ const Search = () => {
       </li>
     );
   });
+
+  if (noInfo) {
+    return <NoInfo />;
+  }
 
   return (
     <>

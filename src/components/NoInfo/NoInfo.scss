@@ -1,0 +1,33 @@
+@import "../../assets/variables.scss";
+
+.no-info {
+  padding: 20px 80px;
+  .no-info-heading {
+    font-size: 2em;
+    font-weight: 200;
+    line-height: 1.8em;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 4px;
+    text-align: center;
+    @media screen and (max-width: 700px) {
+      font-size: 1.5em;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
+    a:hover {
+      cursor: pointer;
+      color: darkgrey;
+    }
+  }
+  .heart-broken-wrapper {
+    display: flex;
+    justify-content: center;
+    .heart-broken {
+      font-size: 80px;
+      color: $theme-color;
+    }
+  }
+}
