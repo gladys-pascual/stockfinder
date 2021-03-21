@@ -11,18 +11,11 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="finnhub"
           >
-            <div
-              className="finnhub-logo"
-              href="https://finnhub.io/docs/api"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                className="finnhub-logo-img"
-                src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
-                alt="Finnhub logo"
-              />
-            </div>
+            <img
+              className="finnhub-logo-img"
+              src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
+              alt="Finnhub logo"
+            />
           </a>
         </li>
         <li>
