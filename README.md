@@ -186,13 +186,27 @@ Add image of project (giphy)
   };
   ```
 
-- [Axios]()
+- [Axios](https://github.com/axios/axios)
 
-  - XXX
+  - Axios is a JavaScript library that allows making an HTTP request, and an alternative to the .fetch()
+  - Some of the advantages of using axios over the fetch method are that axios performs automatic transforms of JSON data and has better browser support compared to the fetch method.
 
-- [react-spinners](https://www.npmjs.com/package/react-spinnershttps://www.npmjs.com/package/react-spinners)
+  To install, run:
 
-  - loading
+  ```
+  npm install axios
+  ```
+
+- [react-spinners](https://www.npmjs.com/package/react-spinners)
+
+  - React spinners were used for the loading components to provide a visual component when fetching the API, leading to a better user experience.
+  - Pacman and SyncLoader were used.
+
+  To install, run:
+
+  ```
+  npm install --save react-spinners
+  ```
 
 - nivo
 
