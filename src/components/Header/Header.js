@@ -8,8 +8,8 @@ const Header = () => {
       <Link exact="true" to="/" className="logo">
         <img src={StockFinderLogo} alt="Logo of StockFinder" />
       </Link>
-      <nav>
-        <ul>
+      <nav className="dropdown">
+        <ul className="dropdown-content">
           <li>
             <NavLink
               exact={true}
