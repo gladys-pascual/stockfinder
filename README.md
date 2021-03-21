@@ -2,7 +2,7 @@
 
 [View the live project here.]()
 
-Add description of the project
+StockFinder is an application that allows you to search for a company stock (with an auto-complete search feature), see real time quote data, a graph of the cost of stocks within a certain timeline, see the current news about the company, and see current analysis for the stock.
 
 Add image of project (giphy)
 
@@ -25,30 +25,30 @@ Add image of project (giphy)
 - ### Design
 
   - #### Colour Scheme
-    - The website [coolors.co](https://coolors.co/) was used to create the colour theme for the website.
-    - XX
-  - #### Typography
+    - The theme colour of the website is #7bcbc4.
 
-    - The Lato font is the main font used throughout the whole website and Roboto on the main headings and navigation links, with Sans Serif as the fallback font in case for any reason the font isn't being imported into the site correctly. The text at the homepage banner used "Caveat" font with font "cursive" as a fallback.
+- - #### Typography
 
-  - #### Logo
-  - #### Imagery
-    - XXX
-    - XXX
-  - #### Animations
-    - logo-bounce-animation: When there is a hover on the logo in the header or the Finnhub API logo in the footter, logo-bounce-animation is applied to let the user know that the logo is a clickable link. The logo-bounce-animation adds some fun to the website.
+    - The Lato font is the main font used throughout the whole website and Roboto on the main headings and navigation links, with Sans Serif as the fallback font in case for any reason the font isn't being imported into the site correctly.
+
   - #### Favicon
+
     - StockFinder favicon was used to allow user to distinguish the tab when multiple tabs are open in their browser, which allows for a better user experience.
+
+  - #### Animations
+    - logo-bounce-animation:
+      - When there is a hover on the logo in the header or the Finnhub API logo in the footer, logo-bounce-animation is applied to let the user know that the logo is a clickable link. The logo-bounce-animation adds some fun to the website.
 
 ### Wireframes
 
-- Wireframes for both desktop and mobile of all the pages of this project are available [here]().
+- Wireframe for this project are available [here](./public/Stockfinder%20wireframe%2022Feb.png).
 
 ## Features
 
 ### As a user, I want to be able to search for a company I want to invest in.
 
-- [API](https://finnhub.io/docs/api/symbol-search)
+- This [API](https://finnhub.io/docs/api/symbol-search) was used to get the data needed.
+- A form with an input was used, where the user can type in their query.
 
 ### As a user, I want to see the list of suggested results as I type my query.
 
@@ -121,9 +121,12 @@ Add image of project (giphy)
   - XXX
 
 - [react-spinners](https://www.npmjs.com/package/react-spinnershttps://www.npmjs.com/package/react-spinners)
+
   - loading
 
-Others tools:
+- nivo
+
+- Others tools:
 
 - [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
   - Flexbox was mainly used to create the website responsive on all devices such as PCs, tablets and mobiles.
@@ -135,6 +138,7 @@ Others tools:
   - Git was used for version control to commit to Git and Push to GitHub.
 - [GitHub:](https://github.com/)
   - GitHub was used to store the projects code after being pushed from Git.
+- Netlify to deploy
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Visual studio code was used to write the code.
 - [Balsamiq:](https://balsamiq.com/)
@@ -142,7 +146,12 @@ Others tools:
 
 ## Testing
 
-- [React Testing Library]()
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- https://jestjs.io/docs/snapshot-testing
+- Snapshot Testing
+  Snapshot tests are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
+
+A typical snapshot test case renders a UI component, takes a snapshot, then compares it to a reference snapshot file stored alongside the test. The test will fail if the two snapshots do not match: either the change is unexpected, or the reference snapshot needs to be updated to the new version of the UI component.
 
 (old)
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
@@ -158,18 +167,16 @@ During testing, the following errors were found and were rectified:
 
 - XXX
 
+- yarn build, The operation `#7bcbc4 plus 20%` is deprecated and will be an error in future versions.
+  Consider using Sass's color functions instead.
+
+- ES Lint
+
 ## Deployment
 
 ### GitHub Pages
 
-The project was deployed to GitHub Pages using the following steps:
-
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository, locate the "Settings" Button on the menu.
-3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
-4. Under "Source", click the dropdown called "None" and select "Master Branch".
-5. The page will automatically refresh.
-6. Scroll back down through the page to locate the now published site in the "GitHub Pages" section.
+The project was deployed to Netlify using the following steps:
 
 ### Forking the GitHub Repository
 
@@ -218,7 +225,7 @@ git clone https://github.com/USERNAME/REPOSITORY
 
 ### Media
 
-- The photos used in this site were from the developer.
+- All the information from this project obtained from [Finnhub API](https://finnhub.io/docs/api/symbol-search)
 
 ### Acknowledgements
 
