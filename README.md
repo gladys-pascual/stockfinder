@@ -37,7 +37,7 @@ Add image of project (giphy)
 
   - #### Animations
     - logo-bounce-animation:
-      - When there is a hover on the logo in the header or the Finnhub API logo in the footer, logo-bounce-animation is applied to let the user know that the logo is a clickable link. The logo-bounce-animation adds some fun to the website.
+      - When there is a hover on the logo in the header, logo-bounce-animation is applied to let the user know that the logo is a clickable link. The logo-bounce-animation adds some fun to the website.
 
 ### Wireframes
 
@@ -103,19 +103,89 @@ Add image of project (giphy)
 
 ### Frameworks, Libraries & Programs Used
 
-- [Finnhub API](https://finnhub.io/docs/api/)
-  - Finnhub API was used to create StockFinder project. The API provides access to real-time RESTful APIs for stocks.
-    The following APIs were used for this project:
-  - Searching for stocks: https://finnhub.io/docs/api/symbol-search
-  -
 - [React](https://reactjs.org/)
-  - React is a JavaScript library used for building user interfaces.
-  - In this project, functional components were used. Hooks were used to XXXX.
-- [SASS]()
-- [ES Lint](https://eslint.org/)
-  - ESLint was used to statically analyze the code to quickly find problems.
-- [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+  - Using React for my project was pre-approved by my mentor, Narender Singh, with the permission from Code Institute.
+  - React is a JavaScript library used for building user interfaces through encapsulated components that manage their own state.
+
+  To create a React project, run:
+
+  ```
+  npx create-react-app my-app
+  cd my-app
+  npm start
+  ```
+
+- [Finnhub API](https://finnhub.io/docs/api/)
+
+  - Finnhub API was used to create StockFinder project. The API provides access to real-time RESTful APIs for stocks.
+
+- [SASS](https://sass-lang.com/)
+
+  - Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized and makes it easy to share design within and across projects.
+
+  To add a SASS stylesheet, run:
+
+  ```
+  npm install node-sass --save
+  ```
+
+- [ES Lint](https://eslint.org/) and [Prettier](https://github.com/prettier/prettier)
+
+  - ESLint was used to statically analyze the code to quickly find problems. It enforces good code-quality.
   - Prettier was used to automatically format the code as it is saved to mitigate code errors/conflicts.
+
+  To install these dependencies, run:
+
+  ```
+  npm i --save-dev eslint@6.8.0 prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hook
+  ```
+
+  Modify `package.json`
+
+  ```
+  {
+    "scripts": {
+  ... add the following two line
+        "lint": "eslint --fix .",
+        "lint-check": "eslint ."
+    }
+  }
+  ```
+
+  To configure the linter, create a file named `.eslintrc.js` at the root of the project with the following:
+
+  ```
+  module.exports = {
+  extends: [
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
+  ],
+  env: {
+    es6: true,
+    node: true,
+    browser: true,
+  },
+  parserOptions: {
+    ecmaVersion: 8,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  ignorePatterns: ['/node_modules/**', '/build/**'],
+  rules: {
+    'no-unused-vars': ['warn', { args: 'none', argsIgnorePattern: 'req|res|next|val' }],
+    'prettier/prettier': ['error'],
+  },  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  };
+  ```
+
 - [Axios]()
 
   - XXX
@@ -194,7 +264,9 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 5. Type `git clone`, and then paste the URL you copied in Step 2.
 
 ```
+
 git clone https://github.com/USERNAME/REPOSITORY
+
 ```
 
 ## Credits
@@ -230,3 +302,11 @@ git clone https://github.com/USERNAME/REPOSITORY
 ### Acknowledgements
 
 - My mentor for continuous helpful feedback.
+
+```
+
+```
+
+```
+
+```
