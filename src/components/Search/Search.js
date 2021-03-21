@@ -30,6 +30,8 @@ const Search = () => {
     }
   }
 
+  // This function was found from this article
+  // https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
   // Returns a function, that, as long as it continues to be invoked, will not be triggered.
   // The function will be called after it stops being called for `wait` milliseconds.
   const debounce = (func, wait) => {

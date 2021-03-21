@@ -56,7 +56,7 @@ const News = ({ news }) => {
     <a href={url} target="_blank" rel="noreferrer" className="news-link">
       <section className="news">
         <div className="news-picture">
-          <img src={image} />
+          <img src={image} alt={headline} />
         </div>
         <div className="news-info">
           <div className="category-source-time">

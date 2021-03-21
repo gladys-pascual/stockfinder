@@ -15,6 +15,7 @@ exports[`render News component as expected 1`] = `
         class="news-picture"
       >
         <img
+          alt="NCAA weight room discrepancy shows 'they don't think these women are worth it,' says Jemele Hill"
           src="https://image.cnbcfm.com/api/v1/image/106441745-1584104407165gettyimages-1137152686.jpeg?v=1584104447"
         />
       </div>
@@ -37,7 +38,7 @@ exports[`render News component as expected 1`] = `
           <p
             class="time"
           >
-            12 hours ago
+            2 days ago
           </p>
         </div>
         <h3

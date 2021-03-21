@@ -41,7 +41,7 @@ Add image of project (giphy)
 
 ### Wireframes
 
-- Wireframe for this project are available [here](./public/Stockfinder%20wireframe%2022Feb.png).
+- Wireframes for this project are available [here](./public/Stockfinder%20wireframe%2022Feb.png).
 
 ## Features
 
@@ -208,9 +208,18 @@ Add image of project (giphy)
   npm install --save react-spinners
   ```
 
-- nivo
+- [nivo](https://nivo.rocks/)
 
-- Others tools:
+  - Nivo provides a rich set of graph components
+  - [Line chart](https://nivo.rocks/line) for the graphs of stock prices and [bar chart](https://nivo.rocks/bar/) for the analysis were used.
+
+  To install, run:
+
+  ```
+  npm install --save @nivo/core @nivo/line @nivo/bar
+  ```
+
+### Others tools:
 
 - [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
   - Flexbox was mainly used to create the website responsive on all devices such as PCs, tablets and mobiles.
@@ -222,45 +231,108 @@ Add image of project (giphy)
   - Git was used for version control to commit to Git and Push to GitHub.
 - [GitHub:](https://github.com/)
   - GitHub was used to store the projects code after being pushed from Git.
-- Netlify to deploy
+- [Netlify](https://www.netlify.com/)
+  - Netlify was used to deploy my project.
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Visual studio code was used to write the code.
-- [Balsamiq:](https://balsamiq.com/)
-  - Balsamiq was used to create the [wireframes]() during the design process.
+- [Balsamiq](https://balsamiq.com/)
+  - Balsamiq was used to create the wireframes during the design process.
+- [Trello](https://trello.com/en)
+  - Trello was used to organise my user stories and tasks that needed to be completed per sprint. My board is availabe [here](https://trello.com/invite/b/N4jVJMVQ/70cbd729c767477e73aa59626f33f706/stockfinder-milestone-project-2-code-institute).
 
 ## Testing
 
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-- https://jestjs.io/docs/snapshot-testing
-- Snapshot Testing
-  Snapshot tests are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
 
-A typical snapshot test case renders a UI component, takes a snapshot, then compares it to a reference snapshot file stored alongside the test. The test will fail if the two snapshots do not match: either the change is unexpected, or the reference snapshot needs to be updated to the new version of the UI component.
+  - Tests were written using the React Testing Library to ensure that the components were rendered as expected. [Snapshot Testing](https://jestjs.io/docs/snapshot-testing) were used.
+  - Snapshot tests are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
+  - A typical snapshot test case renders a UI component, takes a snapshot, then compares it to a reference snapshot file stored alongside the test. The test will fail if the two snapshots do not match: either the change is unexpected, or the reference snapshot needs to be updated to the new version of the UI component.
 
-(old)
+  Once the tests are written, run the test by:
+
+  ```
+  npm test
+  ```
+
+  The following results were obtained:
+
+  ```
+  Test Suites: 18 passed, 18 total
+  Tests:       18 passed, 18 total
+  Snapshots:   18 passed, 18 total
+  Time:        4.187 s
+  Ran all test suites.
+  ```
+
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+
+- [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
+
+  - To get the HTML rendered in this project, in the deployed version of the project, I right-clicked and selected inspect. In elements, I right-clicked from the top of the HTML element, selected copy, then copy outer html. Note that when copying, the `<!DOCTYPE html>` was not included in the copy and will therefore give an error when put to W3C validator. The following errors were found:
+
+  - Error: "Attribute exact not allowed on element a at this point"
+    `<a exact="true" class="logo" href="/">`
+
+    - The exact="true" prop is needed for react-router to ensure that href="/" will be navigated to home. More information is available in this [article](https://medium.com/@sampath.katari/use-of-exact-prop-for-route-in-react-router-v4-fdbe20e8925d).
+
+  - Missing alt on the images of the news rendered in the News.js component. This was rectified by using the headline as a value for alt.
+
+  ```
+  In News.js
+  old
+    <img src={image} } />
+  new
+    <img src={image} alt={headline} />
+  ```
+
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+  - To get the CSS rendered in this project, in the deployed version of the project, I right-clicked and selected "View page source". I looked for the CSS stylesheet, which was `<link href="/static/css/main.3f80367c.chunk.css" rel="stylesheet">`, found after the `<title> `and before the `<head>`. I clicked on the link and it gave the rendered CSS.
+  - When put to the validator, no errors were found.
 
 - Testing dates in company news
 
-- [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+- Manual testing were also performed to ensure that the application works as intended. During this, the following errors were found and were rectified:
 
-During testing, the following errors were found and were rectified:
+  - Market cap logic in company summary - didn't work on billions due to error in logic.
+  - The following stocks had an error and were rectified as follows:
+    - GGN
+      - GGN did not have an analysis ba
+    - HVYB
+    - AAPL.SN
+    - AAPL.SW
+    - FVPIG:65
+    - CHC.AX
+    - FXMBF
 
-- Market cap logic in company summary - didn't work on billions due to error in logic.
+- During the build, `npm build`,it was found that the operation `#7bcbc4 + 20%` was deprecated and will be an error in future versions.
 
-- XXX
+  - I removed the percentages and used a specific colour instead.
 
-- yarn build, The operation `#7bcbc4 plus 20%` is deprecated and will be an error in future versions.
-  Consider using Sass's color functions instead.
+- During the testing of the deployed version, the following error was found in the console after searching for a specific stock, which has something to do with the nivo library that was used to create the line and bar graphs.
 
-- ES Lint
+  ```
+  FrameLoop.ts:110 TypeError: r.willAdvance is not a function
+      at FrameLoop.ts:173
+      at Module.vc (react-dom.production.min.js:244)
+      at y.advance (FrameLoop.ts:169)
+      at n (FrameLoop.ts:107)
+  ```
+
+  - I tried to follow this [link](https://github.com/plouc/nivo/issues/1290?fbclid=IwAR0Ms4AGDv-8Yd56_DNwvnYQouxLxE8ma-WygPf-gh2Am-JPVrWq4uVMqUM#issue-744319832) to rectify the error by switching to an older version of nivo, but more errors were generated when the older version was used. Nivo was upgraded back to the latest version. The application was throughly tested, both automatically and manually, as outliend above, and all functionalities were working, therefore the latest version of nivo was kept and error was left in the console.
+
+- ES Lint was continually used during the project to ensure that props being passed down are the correct format - ie array, string, object or function.
 
 ## Deployment
 
-### GitHub Pages
+### Netlify
 
-The project was deployed to Netlify using the following steps:
+1. Add my new site by clicking the Add A New Project button.
+2. Link my GitHub.
+3. Select the repo `stockfinder`.
+4. Configure my settings by deploying the main branch.
+5. Build the site.
+6. In site settings, click build and deploy, then environment. Add my API key in the environment variables, with the key REACT_APP_API_KEY and value with the API key from Finnhub. This is to ensure that my API key is not publised in my GitHub repository.
 
 ### Forking the GitHub Repository
 
@@ -289,21 +361,10 @@ git clone https://github.com/USERNAME/REPOSITORY
 
 - The structure of my React project to ensure best practices was based in this [article](https://www.devaradise.com/react-project-folder-structure?fbclid=IwAR3QkX7MSaZ8L1yxSeRQ-cTemlXv61JUjlVPkwyjALAGSXp9LhwTtxP6W9w).
 
-  - Assets contain XXX
-  - Components contain a collection of my UI components.
-  - Pages reflects the routes of my application.
-  - Services contain my JavaScript function that manages API integration.
-
 - Use of Axios was based in this [article](https://www.digitalocean.com/community/tutorials/react-axios-react).
 
-  - XXX
-
-- Converting time given by API to relative time
-
-  - https://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time
-
-- Debounce function in search onChange
-  - https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
+- Converting time given by API to relative time was from this [article](https://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time).
+- Debounce function in search onChange was from this [article](https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086).
 
 ### Content
 
@@ -311,16 +372,8 @@ git clone https://github.com/USERNAME/REPOSITORY
 
 ### Media
 
-- All the information from this project obtained from [Finnhub API](https://finnhub.io/docs/api/symbol-search)
+- All the information from this project obtained from [Finnhub API](https://finnhub.io/docs/api/symbol-search).
 
 ### Acknowledgements
 
-- My mentor for continuous helpful feedback.
-
-```
-
-```
-
-```
-
-```
+- My mentor, Narender Singh, for continuous helpful feedback.
