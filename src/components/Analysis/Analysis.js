@@ -53,30 +53,43 @@ const Analysis = ({ symbol, companyName }) => {
     const day = splitDate.slice(8, 10).join("");
     const monthNum = splitDate.slice(5, 7).join("");
     let month;
-    if (monthNum === "01") {
-      month = "Jan";
-    } else if (monthNum === "02") {
-      month = "Feb";
-    } else if (monthNum === "03") {
-      month = "Mar";
-    } else if (monthNum === "04") {
-      month = "Apr";
-    } else if (monthNum === "05") {
-      month = "May";
-    } else if (monthNum === "06") {
-      month = "Jun";
-    } else if (monthNum === "07") {
-      month = "Jul";
-    } else if (monthNum === "08") {
-      month = "Aug";
-    } else if (monthNum === "09") {
-      month = "Sep";
-    } else if (monthNum === "10") {
-      month = "Oct";
-    } else if (monthNum === "11") {
-      month = "Nov";
-    } else if (monthNum === "12") {
-      month = "Dec";
+    switch (monthNum) {
+      case "01":
+        month = "Jan";
+        break;
+      case "02":
+        month = "Feb";
+        break;
+      case "03":
+        month = "Mar";
+        break;
+      case "04":
+        month = "Apr";
+        break;
+      case "05":
+        month = "May";
+        break;
+      case "06":
+        month = "Jun";
+        break;
+      case "07":
+        month = "Jul";
+        break;
+      case "08":
+        month = "Aug";
+        break;
+      case "09":
+        month = "Sep";
+        break;
+      case "10":
+        month = "Oct";
+        break;
+      case "11":
+        month = "Nov";
+        break;
+      case "12":
+        month = "Dec";
+        break;
     }
 
     return `${month} ${day} ${year}`;
@@ -121,7 +134,7 @@ const Analysis = ({ symbol, companyName }) => {
         <div className="advice">
           <p className="advice-date">{`Based on ${total} analyst, as of ${formatDate(
             period
-          )}:`}</p>
+          )}`}</p>
           <h1 className={`advice-heading ${maxVoteKeyClassName}`}>
             {" "}
             {maxVoteKey}

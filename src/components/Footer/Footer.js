@@ -3,28 +3,28 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <footer className="footer-section">
-      <a
-        href="https://finnhub.io/docs/api"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="finnhub"
-      >
-        <div
-          className="finnhub-logo"
-          href="https://finnhub.io/docs/api"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            className="finnhub-logo-img"
-            src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
-            alt="Finnhub logo"
-          />
-        </div>
-        <p className="finnhub-text">This website uses the Finnhub API.</p>
-      </a>
-
       <ul className="footer-socials">
+        <li>
+          <a
+            href="https://finnhub.io/docs/api"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="finnhub"
+          >
+            <div
+              className="finnhub-logo"
+              href="https://finnhub.io/docs/api"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="finnhub-logo-img"
+                src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
+                alt="Finnhub logo"
+              />
+            </div>
+          </a>
+        </li>
         <li>
           <a
             href="https://github.com/gladys-pascual/"
@@ -59,6 +59,7 @@ const Footer = () => {
           </a>
         </li>
       </ul>
+      <p className="finnhub-text">This website uses the Finnhub API.</p>
     </footer>
   );
 };

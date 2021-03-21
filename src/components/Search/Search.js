@@ -4,6 +4,7 @@ import "./Search.scss";
 import axios from "axios";
 import LoadingSearchAPI from "../Loading/LoadingSearchAPI";
 import NoInfo from "../../components/NoInfo/NoInfo";
+import StockFinderLogo from "./StockFinderLogo.svg";
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -100,6 +101,9 @@ const Search = () => {
             placeholder="Search for symbol or company name..."
             onChange={debouncedInputChange}
           ></input>
+          <div className="logo-search">
+            <img src={StockFinderLogo} alt="Logo of StockFinder" />
+          </div>
         </div>
       </form>
       <div className="query-results-list">
