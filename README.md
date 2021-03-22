@@ -329,17 +329,15 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 - During the testing of the deployed version, the following error was found in the console after searching for a specific stock, which has something to do with the nivo library that was used to create the line and bar graphs.
 
-```
+  ```
+  FrameLoop.ts:110 TypeError: r.willAdvance is not a function
+  at FrameLoop.ts:173
+  at Module.vc (react-dom.production.min.js:244)
+  at y.advance (FrameLoop.ts:169)
+  at n (FrameLoop.ts:107)
+  ```
 
-FrameLoop.ts:110 TypeError: r.willAdvance is not a function
-at FrameLoop.ts:173
-at Module.vc (react-dom.production.min.js:244)
-at y.advance (FrameLoop.ts:169)
-at n (FrameLoop.ts:107)
-
-```
-
-- I tried to follow this [link](https://github.com/plouc/nivo/issues/1290?fbclid=IwAR0Ms4AGDv-8Yd56_DNwvnYQouxLxE8ma-WygPf-gh2Am-JPVrWq4uVMqUM#issue-744319832) to rectify the error by switching to an older version of nivo, but more errors were generated when the older version was used. Nivo was upgraded back to the latest version. The application was throughly tested, both automatically and manually, as outliend above, and all functionalities were working, therefore the latest version of nivo was kept and error was left in the console.
+  I tried to follow this [link](https://github.com/plouc/nivo/issues/1290?fbclid=IwAR0Ms4AGDv-8Yd56_DNwvnYQouxLxE8ma-WygPf-gh2Am-JPVrWq4uVMqUM#issue-744319832) to rectify the error by switching to an older version of nivo, but more errors were generated when the older version was used. Nivo was upgraded back to the latest version. The application was throughly tested, both automatically and manually, as outliend above, and all functionalities were working, therefore the latest version of nivo was kept and error was left in the console.
 
 - ES Lint was continually used during the project to ensure that props being passed down are the correct format - ie array, string, object or function.
 
