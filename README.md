@@ -52,32 +52,40 @@ Add image of project (giphy)
 
 ### As a user, I want to see the list of suggested results as I type my query.
 
-- Loading
-- Auto complete search (dev link)
-- Debounce, only call API after 0.5 sec stopping typing (onchange)
+- As the user types in their input, a the first five suggested companies that corresponds to the input will be given, using the onChange in the input.
+- To avoid calling the API on every change, which is typing every letter, a debounce function from this [article](https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086) was used to ensure that only after 0.5 seconds of onChange will the API be called.
+- As the user clicks on the desired stock, handleItemClick function is called, whcih sets the selectedCompany state to the chosen company, and the user is routed to the stock page, with the url of `/quote/${item.symbol}` using react-router-dom. The symbol now available in the URL will be used to call the API needed for the stock page.
+- More information about react-router-dom is available in the Frameworks, Libraries & Programs used below.
 
 ### As a user, I want to see general current market news.
 
-- Wrote function that capitalize first letter of category.
-- Added conditional rendering on class names of category. If category is top news, its color will be red. If it's business, color is blue.
-- Loading - better user expereince. If API hasn't loaded yet, component 'Loading' will be shown to let user know that page is being loaded (show picture)
+- The [Market News API from Finnhub](https://finnhub.io/docs/api/market-news) was used to get the latest market news.
+
+  In News.js:
+
+  - A function was written to capatilize the first leter of the category (from line 7).
+  - Added conditional rendering on class names of category. If category is top news, its color will be red. If it's business, color is blue. (from line 22)
+  - If the Market News API hasn't loaded yet, the LoadingMarketNews.js component will be loaded to let user know that page is being loaded (show picture)
 
 ### As a user, I want to see a graph of the cost of stocks within a certain timeline.
 
-- Price heading
-  - call APIs for information
-  - convert IPO
-  - convert market cap
-- Graph
-  - too many data on x axis, when window size is smaller than 1000, remove data label. Can hover to see data.
+- The [Stock Candles](https://finnhub.io/docs/api/stock-candles) API was used to get the data needed to show the cost of stocks within certain timelines.
+- By default, 5 day graph is shown. Buttons are used to change between 5 days (5D), 1 month (1M), 3 months (3M), 1 year (1Y) and 5 years (5Y).
+- The [Line chart](https://nivo.rocks/line) from nivo was used to plot the graphs of stock prices. To ensure responsiveness, when window is smaller than 1000 px, the x-axis data label is not visible for visual appearance and better user experience.
 
 ### As a user, I want to see the current news about the company/stock.
 
+- The [Company News](https://finnhub.io/docs/api/company-news) API was used.
+- The News.js component was used for both the Market News, and the Compnay News.
+
 ### As a user, I want to see the current analysis for the stock.
+
+- The [Recommendation Trends](https://finnhub.io/docs/api/recommendation-trends) API was used to get informaion about the recommendation of analysts on whether the stock is a strong buy, buy, hold, sell, or strong sell. A [bar chart](https://nivo.rocks/bar/) from nivo library was used to show a percentage of this data.
+- Information about the total number of analysts and the date to which the analysis was made is provided as well.
+- The recommendation is written in text, which uses the colour that matches its corresponding bar from the chart.
 
 ### As a user, I want to be able to use the application across all devices (PC, tablet, and mobile)
 
-- Ensure responsiveness on all device sizes by using media queries.
 - Use of media queries that has various screensize breakpoints to ensure that all the pages of the website looks good at all screen sizes.
 
 ### Accessibility
@@ -86,11 +94,6 @@ Add image of project (giphy)
   - Adding 'alt' text on all images.
   - Font awesome icons are in an `<i>` tag. A span with a class "sr-only" is added which describes the icons. The "sr-only" class has a display:none in the stylesheet, which hides the text on screen, but allows for screenreader to be read.
 
-### Loading
-
-- loading component when API is being loaded to provide a better visual UX. Used react spinners
-
-<br/>
 <br/>
 
 ## Technologies Used
@@ -197,6 +200,16 @@ Add image of project (giphy)
   npm install axios
   ```
 
+- [react-router-dom](https://reactrouter.com/web/guides/quick-start)
+
+  - React is single page application. react-router-dom library allows for the application to navigate between different components, changing the browser URL, modifying the browser history, and keeping the UI state in sync.
+
+  To install:
+
+  ```
+  npm install react-router-dom
+  ```
+
 - [react-spinners](https://www.npmjs.com/package/react-spinners)
 
   - React spinners were used for the loading components to provide a visual component when fetching the API, leading to a better user experience.
@@ -210,7 +223,7 @@ Add image of project (giphy)
 
 - [nivo](https://nivo.rocks/)
 
-  - Nivo provides a rich set of graph components
+  - Nivo provides a rich set of graph components.
   - [Line chart](https://nivo.rocks/line) for the graphs of stock prices and [bar chart](https://nivo.rocks/bar/) for the analysis were used.
 
   To install, run:
@@ -296,30 +309,37 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
   - Market cap logic in company summary - didn't work on billions due to error in logic.
   - The following stocks had an error and were rectified as follows:
-    - GGN
-      - GGN did not have an analysis ba
-    - HVYB
-    - AAPL.SN
-    - AAPL.SW
-    - FVPIG:65
-    - CHC.AX
-    - FXMBF
+
+    - GGN - When the [Recommendation Trends](https://finnhub.io/docs/api/recommendation-trends) API was called on the GGN stock, the call was successful with a status 200. Although, the API gave an empty array back, which caused an error on the code since there is no information. This error cannot be catched in the try catch async fetchAnalysisData function since the call was successful. Therefore, the length of the array was checked and if it is less than 0, then return null and the Analysis component would not be rendered, avoiding the error.
+
+      ```
+      if ((analysisData && analysisData.length === 0) || analysisData === undefined) {
+          console.log("No analysis data available for this stock.");
+          return null;
+      }
+      ```
+
+    - AAPL.SN, AAPL.SW, CHC.AX - When the [Stock Candles](https://finnhub.io/docs/api/stock-candles) API was called for AAPL.SN, a status 403 forbidden. An additional state was added on Graph.js of noInfo, which was set to false initially, and that if an error was catched on the try catch async function fetchStockData, the setNoInfo becomes true. If noInfo is true, a `<NoInfo />` component is loaded which says " Unfortunately, information about this stock is not available. Please search for another stock." with search as a link that brings back to the homepage to allow the user be able to search for another stock.
+
+    - FVPIG:65: Similar to GGN but now by calling [Stock Candles](https://finnhub.io/docs/api/stock-candles) gives a successful call with a status 200, but with data of `{ "s": "no_data" }`. If this happens, then return null and the Graph.js component would not be rendered, avoiding the error.
 
 - During the build, `npm build`,it was found that the operation `#7bcbc4 + 20%` was deprecated and will be an error in future versions.
 
-  - I removed the percentages and used a specific colour instead.
+- I removed the percentages and used a specific colour instead.
 
 - During the testing of the deployed version, the following error was found in the console after searching for a specific stock, which has something to do with the nivo library that was used to create the line and bar graphs.
 
-  ```
-  FrameLoop.ts:110 TypeError: r.willAdvance is not a function
-      at FrameLoop.ts:173
-      at Module.vc (react-dom.production.min.js:244)
-      at y.advance (FrameLoop.ts:169)
-      at n (FrameLoop.ts:107)
-  ```
+```
 
-  - I tried to follow this [link](https://github.com/plouc/nivo/issues/1290?fbclid=IwAR0Ms4AGDv-8Yd56_DNwvnYQouxLxE8ma-WygPf-gh2Am-JPVrWq4uVMqUM#issue-744319832) to rectify the error by switching to an older version of nivo, but more errors were generated when the older version was used. Nivo was upgraded back to the latest version. The application was throughly tested, both automatically and manually, as outliend above, and all functionalities were working, therefore the latest version of nivo was kept and error was left in the console.
+FrameLoop.ts:110 TypeError: r.willAdvance is not a function
+at FrameLoop.ts:173
+at Module.vc (react-dom.production.min.js:244)
+at y.advance (FrameLoop.ts:169)
+at n (FrameLoop.ts:107)
+
+```
+
+- I tried to follow this [link](https://github.com/plouc/nivo/issues/1290?fbclid=IwAR0Ms4AGDv-8Yd56_DNwvnYQouxLxE8ma-WygPf-gh2Am-JPVrWq4uVMqUM#issue-744319832) to rectify the error by switching to an older version of nivo, but more errors were generated when the older version was used. Nivo was upgraded back to the latest version. The application was throughly tested, both automatically and manually, as outliend above, and all functionalities were working, therefore the latest version of nivo was kept and error was left in the console.
 
 - ES Lint was continually used during the project to ensure that props being passed down are the correct format - ie array, string, object or function.
 
@@ -329,7 +349,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 1. Add my new site by clicking the Add A New Project button.
 2. Link my GitHub.
-3. Select the repo `stockfinder`.
+3. Select the repo stockfinder.
 4. Configure my settings by deploying the main branch.
 5. Build the site.
 6. In site settings, click build and deploy, then environment. Add my API key in the environment variables, with the key REACT_APP_API_KEY and value with the API key from Finnhub. This is to ensure that my API key is not publised in my GitHub repository.
@@ -350,9 +370,7 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 5. Type `git clone`, and then paste the URL you copied in Step 2.
 
 ```
-
 git clone https://github.com/USERNAME/REPOSITORY
-
 ```
 
 ## Credits
@@ -364,6 +382,7 @@ git clone https://github.com/USERNAME/REPOSITORY
 - Use of Axios was based in this [article](https://www.digitalocean.com/community/tutorials/react-axios-react).
 
 - Converting time given by API to relative time was from this [article](https://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time).
+
 - Debounce function in search onChange was from this [article](https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086).
 
 ### Content
