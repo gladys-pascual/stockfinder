@@ -13,8 +13,12 @@ exports[`renders Header component as expected 1`] = `
         src="StockFinderLogo.svg"
       />
     </a>
-    <nav>
-      <ul>
+    <nav
+      class="dropdown"
+    >
+      <ul
+        class="dropdown-content"
+      >
         <li>
           <a
             aria-current="page"

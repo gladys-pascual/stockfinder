@@ -17,6 +17,14 @@ exports[`render Home component as expected 1`] = `
           placeholder="Search for symbol or company name..."
           type="text"
         />
+        <div
+          class="logo-search"
+        >
+          <img
+            alt="Logo of StockFinder"
+            src="StockFinderLogo.svg"
+          />
+        </div>
       </div>
     </form>
     <div

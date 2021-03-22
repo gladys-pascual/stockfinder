@@ -13,8 +13,12 @@ exports[`renders learn react link 1`] = `
         src="StockFinderLogo.svg"
       />
     </a>
-    <nav>
-      <ul>
+    <nav
+      class="dropdown"
+    >
+      <ul
+        class="dropdown-content"
+      >
         <li>
           <a
             aria-current="page"
@@ -53,6 +57,14 @@ exports[`renders learn react link 1`] = `
             placeholder="Search for symbol or company name..."
             type="text"
           />
+          <div
+            class="logo-search"
+          >
+            <img
+              alt="Logo of StockFinder"
+              src="StockFinderLogo.svg"
+            />
+          </div>
         </div>
       </form>
       <div
@@ -67,33 +79,23 @@ exports[`renders learn react link 1`] = `
   <footer
     class="footer-section"
   >
-    <a
-      class="finnhub"
-      href="https://finnhub.io/docs/api"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <div
-        class="finnhub-logo"
-        href="https://finnhub.io/docs/api"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <img
-          alt="Finnhub logo"
-          class="finnhub-logo-img"
-          src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
-        />
-      </div>
-      <p
-        class="finnhub-text"
-      >
-        This website uses the Finnhub API.
-      </p>
-    </a>
     <ul
       class="footer-socials"
     >
+      <li>
+        <a
+          class="finnhub"
+          href="https://finnhub.io/docs/api"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="Finnhub logo"
+            class="finnhub-logo-img"
+            src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
+          />
+        </a>
+      </li>
       <li>
         <a
           href="https://github.com/gladys-pascual/"
@@ -146,6 +148,11 @@ exports[`renders learn react link 1`] = `
         </a>
       </li>
     </ul>
+    <p
+      class="finnhub-text"
+    >
+      This website uses the Finnhub API.
+    </p>
   </footer>
 </div>
 `;

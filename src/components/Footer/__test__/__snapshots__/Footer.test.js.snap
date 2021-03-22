@@ -5,33 +5,23 @@ exports[`render Footer as expected 1`] = `
   <footer
     class="footer-section"
   >
-    <a
-      class="finnhub"
-      href="https://finnhub.io/docs/api"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <div
-        class="finnhub-logo"
-        href="https://finnhub.io/docs/api"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <img
-          alt="Finnhub logo"
-          class="finnhub-logo-img"
-          src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
-        />
-      </div>
-      <p
-        class="finnhub-text"
-      >
-        This website uses the Finnhub API.
-      </p>
-    </a>
     <ul
       class="footer-socials"
     >
+      <li>
+        <a
+          class="finnhub"
+          href="https://finnhub.io/docs/api"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="Finnhub logo"
+            class="finnhub-logo-img"
+            src="https://static.finnhub.io/img/finnhub_2020-05-09_20_51/logo/logo-gradient-thumbnail-trans.png"
+          />
+        </a>
+      </li>
       <li>
         <a
           href="https://github.com/gladys-pascual/"
@@ -84,6 +74,11 @@ exports[`render Footer as expected 1`] = `
         </a>
       </li>
     </ul>
+    <p
+      class="finnhub-text"
+    >
+      This website uses the Finnhub API.
+    </p>
   </footer>
 </div>
 `;
