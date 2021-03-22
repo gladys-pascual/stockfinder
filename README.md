@@ -1,10 +1,10 @@
 <h1 align="center">StockFinder</h1>
 
-[View the live project here.]()
+[View the live project here.](https://stockfinder-me.netlify.app/)
 
 StockFinder is an application that allows you to search for a company stock (with an auto-complete search feature), see real time quote data, a graph of the cost of stocks within a certain timeline, see the current news about the company, and see current analysis for the stock.
 
-Add image of project (giphy)
+<img src="./public/stockfinder.gif" alt="Stockfinder demo"/>
 
 <br/>
 <br/>
